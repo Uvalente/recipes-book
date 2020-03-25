@@ -9,6 +9,12 @@ test('renders learn react link', () => {
   expect(titleElement).toBeInTheDocument();
 });
 
+test('renders learn react link', () => {
+  const { getByText } = render(<NewRecipe />);
+  const titleElement = getByText(/insert recipe description/i);
+  expect(titleElement).toBeInTheDocument();
+});
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<NewRecipe />, div);
