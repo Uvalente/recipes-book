@@ -11,7 +11,7 @@ test('renders without crashing', () => {
 test('display props correctly', () => {
   const { getByText } = render(
     <Recipe
-      recipeTitle='Amatriciana'
+      recipeName='Amatriciana'
       recipeDescription='Cook the pasta'
     />)
   const title = getByText('Amatriciana')
