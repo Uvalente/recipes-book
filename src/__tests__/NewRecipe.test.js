@@ -8,10 +8,11 @@ it('renders without crashing', () => {
   ReactDOM.render(<NewRecipe />, div);
 });
 
-test('save recipe to state', () => {
-  const { getByTestId } = render(<NewRecipe />)
+test('save recipe to state and reset form upon submit', () => {
+  const { getByTestId } = render(<NewRecipe onAddRecipe={() => {}}/>)
   const title = getByTestId('recipe-name')
   const description = getByTestId('recipe-description')
+  const button = getByTestId('recipe-submit')
   fireEvent.change(title, {
     target: {
       value: 'Amatriciana'
@@ -24,4 +25,7 @@ test('save recipe to state', () => {
   })
   expect(title.value).toBe('Amatriciana')
   expect(description.value).toBe('Cook the pasta')
+  fireEvent.click(button)
+  expect(title.value).toBeFalsy()
+  expect(description.value).toBeFalsy()
 })

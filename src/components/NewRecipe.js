@@ -17,6 +17,13 @@ const NewRecipe = (props) => {
     <form onSubmit={(event) => {
       event.preventDefault()
       props.onAddRecipe(recipeForm)
+      setRecipeForm(currentRecipeForm => {
+        return {
+          ...currentRecipeForm,
+          recipeName: '',
+          recipeDescription: ''
+        }
+      })
     }}>
       <label>
         Insert recipe name:
