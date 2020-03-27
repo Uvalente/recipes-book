@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import './components/NewRecipe'
 import NewRecipe from './components/NewRecipe';
 import Recipe from './components/Recipe';
 import Header from './components/Header';
@@ -28,7 +26,7 @@ function App() {
   )
 
   return (
-    <div>
+    <div className='container'>
       <Header />
       <NewRecipe onAddRecipe={addRecipeHandler} />
       {recipeComponents}
