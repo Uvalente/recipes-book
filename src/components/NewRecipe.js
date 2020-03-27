@@ -22,6 +22,7 @@ const NewRecipe = (props) => {
         Insert recipe name:
         <input
           type="text"
+          data-testid='recipe-name'
           name={'recipeName'}
           value={recipeForm.recipeName}
           onChange={recipeHandleChange}
@@ -32,13 +33,18 @@ const NewRecipe = (props) => {
         Insert recipe description:
         <input
           type="text"
+          data-testid='recipe-description'
           name={'recipeDescription'}
           value={recipeForm.recipeDescription}
           onChange={recipeHandleChange}
         />
       </label>
       <br />
-      <input type="submit" value="Create recipe" />
+      <input
+        type="submit"
+        data-testid='recipe-submit'
+        value="Create recipe"
+      />
     </form>
   )
 }

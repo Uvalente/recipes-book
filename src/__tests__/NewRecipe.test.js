@@ -9,9 +9,9 @@ it('renders without crashing', () => {
 });
 
 test('save recipe to state', () => {
-  const { getByLabelText } = render(<NewRecipe />)
-  const title = getByLabelText(/insert recipe name/i)
-  const description = getByLabelText(/insert recipe description/i)
+  const { getByTestId } = render(<NewRecipe />)
+  const title = getByTestId('recipe-name')
+  const description = getByTestId('recipe-description')
   fireEvent.change(title, {
     target: {
       value: 'Amatriciana'

@@ -9,10 +9,10 @@ it('renders without crashing', () => {
 });
 
 test('creating a recipe display it on the homepage', () => {
-  const { container, getByLabelText, getByText } = render(<App />)
-  const titleForm = getByLabelText(/insert recipe name/i)
-  const descriptionForm = getByLabelText(/insert recipe description/i)
-  const button = container.querySelector('input[type="submit"]')
+  const { container, getByLabelText, getByText, getByTestId } = render(<App />)
+  const titleForm = getByTestId('recipe-name')
+  const descriptionForm = getByTestId('recipe-description')
+  const button = getByTestId('recipe-submit')
   fireEvent.change(titleForm, {
     target: {
       value: 'Amatriciana'
