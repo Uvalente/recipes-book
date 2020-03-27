@@ -4,6 +4,8 @@ import './App.css';
 import './components/NewRecipe'
 import NewRecipe from './components/NewRecipe';
 import Recipe from './components/Recipe';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   const [recipeList, setRecipeList] = useState([])
@@ -27,8 +29,10 @@ function App() {
 
   return (
     <div>
+      <Header />
       <NewRecipe onAddRecipe={addRecipeHandler} />
       {recipeComponents}
+      <Footer />
     </div>
   );
 }
