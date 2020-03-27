@@ -33,6 +33,7 @@ const NewRecipe = (props) => {
           name={'recipeName'}
           value={recipeForm.recipeName}
           onChange={recipeHandleChange}
+          required
         />
       </label>
       <br />
@@ -44,6 +45,7 @@ const NewRecipe = (props) => {
           name={'recipeDescription'}
           value={recipeForm.recipeDescription}
           onChange={recipeHandleChange}
+          required
         />
       </label>
       <br />
