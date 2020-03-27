@@ -8,3 +8,8 @@ nav {
   padding: 0 3rem;
   background-color: rgb(24, 41, 71);
 }
+
+a {
+  color: white;
+  padding-left: 1rem;
+}

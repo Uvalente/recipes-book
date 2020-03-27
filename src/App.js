@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Header from './components/Header';
 import NewRecipe from './components/NewRecipe';
 import Recipe from './components/Recipe';
-import Header from './components/Header';
 import Footer from './components/Footer';
+import './App.css';
+
 
 function App() {
   const [recipeList, setRecipeList] = useState([])
@@ -26,12 +33,20 @@ function App() {
   )
 
   return (
-    <div className='container'>
-      <Header />
-      <NewRecipe onAddRecipe={addRecipeHandler} />
-      {recipeComponents}
-      <Footer />
-    </div>
+    <Router>
+      <div className='container'>
+        <Header />
+        <Switch>
+          <Route exact path='/'>
+            {recipeComponents}
+          </Route>
+          <Route path='/recipes/new'>
+            <NewRecipe onAddRecipe={addRecipeHandler} />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
