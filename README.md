@@ -3,7 +3,7 @@
 App where you can create your own recipe book.
 Created using React and Jest.
 
-# Usage
+## Usage
 
 `yarn start`
 
@@ -26,3 +26,16 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## To Do List
+
+- Form
+  - Validation
+  - Upload picture
+  - Textarea for recipe steps
+  - Ingredients form
+- Redirecting after recipe creation
+- Firebase db
+- Save recipe on db
+- Fetch recipes from db
+- User creation
