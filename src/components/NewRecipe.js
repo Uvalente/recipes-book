@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const NewRecipe = (props) => {
+  const history = useHistory()
   const [recipeForm, setRecipeForm] = useState({
     recipeName: '',
     recipeDescription: ''
@@ -24,6 +26,7 @@ const NewRecipe = (props) => {
           recipeDescription: ''
         }
       })
+      history.push('/')
     }}>
       <label>
         Insert recipe name:

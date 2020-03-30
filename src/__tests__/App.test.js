@@ -30,7 +30,6 @@ test('creating a recipe display it on the homepage', () => {
     }
   })
   fireEvent.click(button)
-  fireEvent.click(home)
 
   const title = getByText('Amatriciana')
   const description = getByText('Cook the pasta')

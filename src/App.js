@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect,
+  Route
 } from "react-router-dom";
 import Header from './components/Header';
 import NewRecipe from './components/NewRecipe';
