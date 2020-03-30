@@ -1,4 +1,5 @@
 import React from 'react'
+import './Recipe.css'
 
 const Recipe = (props) => {
   return (
@@ -6,7 +7,7 @@ const Recipe = (props) => {
       <p>
         {props.recipeName}
       </p>
-      <p>
+      <p className="recipe-description">
         {props.recipeDescription}
       </p>
     </div>

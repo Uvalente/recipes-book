@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route
-} from "react-router-dom";
-import Header from './components/Header';
-import NewRecipe from './components/NewRecipe';
-import Recipe from './components/Recipe';
-import Footer from './components/Footer';
-import './App.css';
+} from "react-router-dom"
+import Header from './components/Header'
+import NewRecipe from './components/NewRecipe'
+import Recipe from './components/Recipe'
+import Footer from './components/Footer'
+import './App.css'
 
 
 function App() {

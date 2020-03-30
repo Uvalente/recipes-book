@@ -42,8 +42,7 @@ const NewRecipe = (props) => {
       <br />
       <label>
         Insert recipe description:
-        <input
-          type="text"
+        <textarea
           data-testid='recipe-description'
           name={'recipeDescription'}
           value={recipeForm.recipeDescription}

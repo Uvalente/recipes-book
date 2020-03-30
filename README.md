@@ -32,9 +32,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Form
   - Validation
   - Upload picture
-  - Textarea for recipe steps
   - Ingredients form
-- Redirecting after recipe creation
 - Firebase db
 - Save recipe on db
 - Fetch recipes from db
