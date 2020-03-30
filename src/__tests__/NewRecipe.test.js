@@ -19,6 +19,7 @@ test('save recipe to state and reset form upon submit', () => {
   const { getByTestId } = render(newRecipeWithRouter)
   const title = getByTestId('recipe-name')
   const description = getByTestId('recipe-description')
+  const course = getByTestId('recipe-course')
   const button = getByTestId('recipe-submit')
   fireEvent.change(title, {
     target: {
@@ -30,9 +31,16 @@ test('save recipe to state and reset form upon submit', () => {
       value: 'Cook the pasta'
     }
   })
+  fireEvent.change(course, {
+    target: {
+      value: 'main-course'
+    }
+  })
   expect(title.value).toBe('Amatriciana')
   expect(description.value).toBe('Cook the pasta')
+  expect(course.value).toBe('main-course')
   fireEvent.click(button)
   expect(title.value).toBeFalsy()
   expect(description.value).toBeFalsy()
+  expect(course.value).toBeFalsy()
 })

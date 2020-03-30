@@ -5,7 +5,8 @@ const NewRecipe = (props) => {
   const history = useHistory()
   const [recipeForm, setRecipeForm] = useState({
     recipeName: '',
-    recipeDescription: ''
+    recipeDescription: '',
+    recipeCourse: ''
   })
 
   const recipeHandleChange = (e) => {
@@ -23,7 +24,8 @@ const NewRecipe = (props) => {
         return {
           ...currentRecipeForm,
           recipeName: '',
-          recipeDescription: ''
+          recipeDescription: '',
+          recipeCourse: ''
         }
       })
       history.push('/')
@@ -49,6 +51,23 @@ const NewRecipe = (props) => {
           onChange={recipeHandleChange}
           required
         />
+      </label>
+      <br />
+      <label>
+        Select the course:
+        <select
+          data-testid='recipe-course'
+          name='recipeCourse'
+          value={recipeForm.recipeCourse}
+          onChange={recipeHandleChange}
+          required
+        >
+          <option value=''>Please choose an option</option>
+          <option value='starter'>Starter</option>
+          <option value='main-course'>Main Course</option>
+          <option value='dessert'>Dessert</option>
+          <option value='drink'>Drink</option>
+        </select>
       </label>
       <br />
       <input
