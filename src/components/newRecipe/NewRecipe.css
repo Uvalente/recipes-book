@@ -1,0 +1,44 @@
+form {
+  margin: 4rem 0;
+  align-self: center;
+  max-width: 60vw;
+  width: 100%;
+  padding: 4rem 5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.field-wrapper {
+  padding-bottom: 1.5rem;
+}
+
+.input-field {
+  border-radius: 4px;
+  border: #EDF2F7 1px solid;
+  margin-top: 0.3rem;
+  padding-left: 0.3rem;
+  min-height: 1.5rem;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.error {
+  color: rgb(230, 0, 0);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.error-input {
+  border-color: rgb(230, 0, 0);
+}
+
+
+
+.submit-button {
+  background-color: #EDF2F7;
+  border: none;
+  border-bottom: rgba(0, 0, 0, 0.1) 2px solid;
+  border-radius: 4px;
+  padding: 0.7rem 1.5rem;
+}

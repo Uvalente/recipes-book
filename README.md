@@ -30,9 +30,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## To Do List
 
 - Form
-  - Validation
   - Upload picture
   - Ingredients form
+- Style recipe card
 - Firebase db
 - Save recipe on db
 - Fetch recipes from db
