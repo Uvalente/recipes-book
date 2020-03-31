@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 
-const useForm = (callback) => {
+const useForm = (callback, validate) => {
   const history = useHistory()
   const [recipeForm, setRecipeForm] = useState({
     recipeName: '',
     recipeDescription: '',
     recipeCourse: ''
   })
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const recipeHandleChange = (e) => {
     const { name, value } = e.target
@@ -30,15 +32,23 @@ const useForm = (callback) => {
 
   const recipeHandleSubmit = (event) => {
     event.preventDefault()
-    callback(recipeForm)
-    resetForm()
-    history.push('/')
+    setErrors(validate(recipeForm))
+    setIsSubmitting(true)
   }
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      callback(recipeForm)
+      resetForm()
+      history.push('/')
+    }
+  }, [errors])
 
   return {
     recipeHandleChange,
     recipeHandleSubmit,
-    recipeForm
+    recipeForm,
+    errors
   }
 }
 

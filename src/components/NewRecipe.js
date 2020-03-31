@@ -1,15 +1,17 @@
 import React from 'react'
 import useForm from '../useForm'
+import validate from '../recipeValidation'
 
 const NewRecipe = (props) => {
   const {
     recipeHandleChange,
     recipeHandleSubmit,
-    recipeForm
-  } = useForm(props.onAddRecipe)
+    recipeForm,
+    errors
+  } = useForm(props.onAddRecipe, validate)
 
   return (
-    <form onSubmit={recipeHandleSubmit}>
+    <form onSubmit={recipeHandleSubmit} noValidate>
       <label>
         Insert recipe name:
         <input
@@ -20,6 +22,7 @@ const NewRecipe = (props) => {
           onChange={recipeHandleChange}
           required
         />
+        {errors.recipeName && <span>{errors.recipeName}</span>}
       </label>
       <br />
       <label>
@@ -31,6 +34,7 @@ const NewRecipe = (props) => {
           onChange={recipeHandleChange}
           required
         />
+        {errors.recipeDescription && <span>{errors.recipeDescription}</span>}
       </label>
       <br />
       <label>
@@ -48,6 +52,7 @@ const NewRecipe = (props) => {
           <option value='dessert'>Dessert</option>
           <option value='drink'>Drink</option>
         </select>
+        {errors.recipeCourse && <span>{errors.recipeCourse}</span>}
       </label>
       <br />
       <input

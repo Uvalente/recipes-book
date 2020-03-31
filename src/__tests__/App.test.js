@@ -17,6 +17,7 @@ test('creating a recipe display it on the homepage', () => {
 
   const titleForm = getByTestId('recipe-name')
   const descriptionForm = getByTestId('recipe-description')
+  const course = getByTestId('recipe-course')
   const button = getByTestId('recipe-submit')
 
   fireEvent.change(titleForm, {
@@ -27,6 +28,11 @@ test('creating a recipe display it on the homepage', () => {
   fireEvent.change(descriptionForm, {
     target: {
       value: 'Cook the pasta'
+    }
+  })
+  fireEvent.change(course, {
+    target: {
+      value: 'main-course'
     }
   })
   fireEvent.click(button)

@@ -15,6 +15,15 @@ it('renders without crashing', () => {
   ReactDOM.render(newRecipeWithRouter, div);
 });
 
+test('displays errors upon submit', () => {
+  const { getByTestId, getByText } = render(newRecipeWithRouter)
+  const button = getByTestId('recipe-submit')
+  fireEvent.click(button)
+  expect(getByText(/please insert a recipe title/i)).toBeInTheDocument()
+  expect(getByText(/insert recipe\'s instructions/i)).toBeInTheDocument()
+  expect(getByText(/select a course type/i)).toBeInTheDocument()
+})
+
 test('save recipe to state and reset form upon submit', () => {
   const { getByTestId } = render(newRecipeWithRouter)
   const title = getByTestId('recipe-name')
