@@ -1,41 +1,21 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React from 'react'
+import useForm from '../useForm'
 
 const NewRecipe = (props) => {
-  const history = useHistory()
-  const [recipeForm, setRecipeForm] = useState({
-    recipeName: '',
-    recipeDescription: '',
-    recipeCourse: ''
-  })
-
-  const recipeHandleChange = (e) => {
-    const { name, value } = e.target
-    setRecipeForm(currentRecipeForm => {
-      return { ...currentRecipeForm, [name]: value }
-    })
-  }
+  const {
+    recipeHandleChange,
+    recipeHandleSubmit,
+    recipeForm
+  } = useForm(props.onAddRecipe)
 
   return (
-    <form onSubmit={(event) => {
-      event.preventDefault()
-      props.onAddRecipe(recipeForm)
-      setRecipeForm(currentRecipeForm => {
-        return {
-          ...currentRecipeForm,
-          recipeName: '',
-          recipeDescription: '',
-          recipeCourse: ''
-        }
-      })
-      history.push('/')
-    }}>
+    <form onSubmit={recipeHandleSubmit}>
       <label>
         Insert recipe name:
         <input
           type="text"
           data-testid='recipe-name'
-          name={'recipeName'}
+          name='recipeName'
           value={recipeForm.recipeName}
           onChange={recipeHandleChange}
           required
@@ -46,7 +26,7 @@ const NewRecipe = (props) => {
         Insert recipe description:
         <textarea
           data-testid='recipe-description'
-          name={'recipeDescription'}
+          name='recipeDescription'
           value={recipeForm.recipeDescription}
           onChange={recipeHandleChange}
           required
