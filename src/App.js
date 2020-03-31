@@ -4,10 +4,10 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-import Header from './components/Header'
-import NewRecipe from './components/NewRecipe'
-import Recipe from './components/Recipe'
-import Footer from './components/Footer'
+import Header from './components/header/Header'
+import NewRecipe from './components/newRecipe/NewRecipe'
+import Recipe from './components/recipe/Recipe'
+import Footer from './components/footer/Footer'
 import './App.css'
 
 

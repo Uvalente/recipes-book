@@ -1,6 +1,6 @@
 import React from 'react'
-import useForm from '../useForm'
-import validate from '../recipeValidation'
+import useForm from './useForm'
+import validate from './recipeValidation'
 
 const NewRecipe = (props) => {
   const {
