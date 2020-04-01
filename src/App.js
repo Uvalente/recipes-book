@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import Header from './components/header/Header'
 import NewRecipe from './components/newRecipe/NewRecipe'
-import Recipe from './components/recipe/Recipe'
+import RecipeCard from './components/recipeCard/RecipeCard'
 import Footer from './components/footer/Footer'
 import './App.css'
 
@@ -25,7 +25,7 @@ function App() {
   }
 
   const recipeComponents = recipeList.map((recipe, index) =>
-    <Recipe
+    <RecipeCard
       key={index}
       recipeName={recipe.name}
       recipeDescription={recipe.description}

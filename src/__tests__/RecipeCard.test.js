@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Recipe from '../components/recipe/Recipe'
+import RecipeCard from '../components/recipeCard/RecipeCard'
 import ReactDom from 'react-dom'
 
 test('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDom.render(<Recipe
+  ReactDom.render(<RecipeCard
     recipeName=''
     recipeDescription=''
     recipeCourse=''
@@ -14,7 +14,7 @@ test('renders without crashing', () => {
 
 test('display props correctly', () => {
   const { getByText } = render(
-    <Recipe
+    <RecipeCard
       recipeName='Amatriciana'
       recipeDescription='Cook the pasta'
       recipeCourse='Main Course'
@@ -33,7 +33,7 @@ test('display props correctly', () => {
 test('cut long title and instructions', () => {
   const longString = 'I am a super long text, I am a super long text'
   const { getByTestId } = render(
-    <Recipe
+    <RecipeCard
       recipeName={longString}
       recipeDescription={longString.repeat(10)}
       recipeCourse='Main Course'

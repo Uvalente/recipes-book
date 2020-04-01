@@ -1,7 +1,7 @@
 import React from 'react'
-import './Recipe.css'
+import './RecipeCard.css'
 
-const Recipe = (props) => {
+const RecipeCard = (props) => {
   return (
     <div className='recipe-card'>
       <div className='top-card'>
@@ -34,4 +34,4 @@ const Recipe = (props) => {
   )
 }
 
-export default Recipe
+export default RecipeCard
