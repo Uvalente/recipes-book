@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import NewRecipe from '../components/NewRecipe';
+import NewRecipe from '../components/newRecipe/NewRecipe';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -42,12 +42,12 @@ test('save recipe to state and reset form upon submit', () => {
   })
   fireEvent.change(course, {
     target: {
-      value: 'main-course'
+      value: 'Main Course'
     }
   })
   expect(title.value).toBe('Amatriciana')
   expect(description.value).toBe('Cook the pasta')
-  expect(course.value).toBe('main-course')
+  expect(course.value).toBe('Main Course')
   fireEvent.click(button)
   expect(title.value).toBeFalsy()
   expect(description.value).toBeFalsy()

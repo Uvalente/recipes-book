@@ -32,7 +32,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Form
   - Upload picture
   - Ingredients form
-- Style recipe card
 - Firebase db
 - Save recipe on db
 - Fetch recipes from db

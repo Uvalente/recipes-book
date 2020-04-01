@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Header from '../components/Header'
+import Header from '../components/header/Header'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 test('renders without crashing', () => {

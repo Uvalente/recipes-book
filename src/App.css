@@ -4,3 +4,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.recipes-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3rem;
+}

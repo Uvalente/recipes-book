@@ -51,7 +51,7 @@ const NewRecipe = (props) => {
           Course type:
           <br />
           <select
-          className={`input-field ${errors.recipeDescription && "error-input"}`}
+          className={`input-field ${errors.recipeCourse && "error-input"}`}
             data-testid='recipe-course'
             name='recipeCourse'
             value={recipeForm.recipeCourse}
@@ -59,10 +59,10 @@ const NewRecipe = (props) => {
             required
           >
             <option value=''>Please choose an option</option>
-            <option value='starter'>Starter</option>
-            <option value='main-course'>Main Course</option>
-            <option value='dessert'>Dessert</option>
-            <option value='drink'>Drink</option>
+            <option value='Starter'>Starter</option>
+            <option value='Main Course'>Main Course</option>
+            <option value='Dessert'>Dessert</option>
+            <option value='Drink'>Drink</option>
           </select>
           <br />
           {errors.recipeCourse && <span className='error'>{errors.recipeCourse}</span>}

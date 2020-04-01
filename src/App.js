@@ -18,7 +18,8 @@ function App() {
       ...currentRecipeList,
       {
         name: recipeForm.recipeName,
-        description: recipeForm.recipeDescription
+        description: recipeForm.recipeDescription,
+        course: recipeForm.recipeCourse
       }
     ])
   }
@@ -28,6 +29,7 @@ function App() {
       key={index}
       recipeName={recipe.name}
       recipeDescription={recipe.description}
+      recipeCourse={recipe.course}
     />
   )
 
@@ -37,7 +39,9 @@ function App() {
         <Header />
         <Switch>
           <Route exact path='/'>
-            {recipeComponents}
+            <div className='recipes-wrapper'>
+              {recipeComponents}
+            </div>
           </Route>
           <Route path='/recipes/new'>
             <NewRecipe onAddRecipe={addRecipeHandler} />
