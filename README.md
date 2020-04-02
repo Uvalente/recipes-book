@@ -33,6 +33,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   - Upload picture
   - Ingredients form
 - Firebase db
-- Save recipe on db
-- Fetch recipes from db
+  - Add timestamp
+  - Display in alphabetic order
+- Bugfix recipe list doubling on submit
 - User creation

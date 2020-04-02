@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,20 +9,23 @@ import NewRecipe from './components/newRecipe/NewRecipe'
 import RecipeCard from './components/recipeCard/RecipeCard'
 import Footer from './components/footer/Footer'
 import './App.css'
-
+import db from './firebase'
 
 function App() {
   const [recipeList, setRecipeList] = useState([])
-  const addRecipeHandler = (recipeForm) => {
-    setRecipeList(currentRecipeList => [
-      ...currentRecipeList,
-      {
-        name: recipeForm.recipeName,
-        description: recipeForm.recipeDescription,
-        course: recipeForm.recipeCourse
-      }
-    ])
-  }
+
+  useEffect(() => {
+    db.collection('recipes')
+      .onSnapshot(snapShot => {
+        snapShot.forEach(recipe => {
+          setRecipeList(currentRecipeList => [
+            ...currentRecipeList,
+            recipe.data()
+          ])
+        })
+      })
+
+  }, [])
 
   const recipeComponents = recipeList.map((recipe, index) =>
     <RecipeCard
@@ -44,7 +47,7 @@ function App() {
             </div>
           </Route>
           <Route path='/recipes/new'>
-            <NewRecipe onAddRecipe={addRecipeHandler} />
+            <NewRecipe />
           </Route>
         </Switch>
         <Footer />
