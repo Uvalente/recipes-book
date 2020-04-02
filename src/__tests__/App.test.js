@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
 import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
 });
 
-test('creating a recipe display it on the homepage', () => {
+test('creating a recipe display it on the homepage', async () => {
   const { getByText, getByTestId } = render(<App />)
+
   const addRecipe = getByText('Add Recipe')
 
   fireEvent.click(addRecipe)
@@ -34,7 +37,7 @@ test('creating a recipe display it on the homepage', () => {
       value: 'Main Course'
     }
   })
-  fireEvent.click(button)
+  await act(async () => fireEvent.click(button))
 
   const title = getByText('Amatriciana')
   const description = getByText('Cook the pasta')

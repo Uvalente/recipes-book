@@ -3,13 +3,13 @@ import useForm from './useForm'
 import validate from './recipeValidation'
 import './NewRecipe.css'
 
-const NewRecipe = (props) => {
+const NewRecipe = () => {
   const {
     recipeHandleChange,
     recipeHandleSubmit,
     recipeForm,
     errors
-  } = useForm(props.onAddRecipe, validate)
+  } = useForm(validate)
 
   return (
     <form onSubmit={recipeHandleSubmit} noValidate>

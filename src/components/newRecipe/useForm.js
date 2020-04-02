@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import db from '../../firebase'
 
-
-const useForm = (callback, validate) => {
+const useForm = (validate) => {
   const history = useHistory()
   const [recipeForm, setRecipeForm] = useState({
     recipeName: '',
@@ -36,9 +36,17 @@ const useForm = (callback, validate) => {
     setIsSubmitting(true)
   }
 
+  const createRecipe = () => {
+    db.collection("recipes").add({
+      name:  recipeForm.recipeName,
+      description: recipeForm.recipeDescription,
+      course: recipeForm.recipeCourse
+    })
+  }
+
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback(recipeForm)
+      createRecipe()
       resetForm()
       history.push('/')
     }
