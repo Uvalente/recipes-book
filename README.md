@@ -34,5 +34,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   - Ingredients form
 - Firebase db
   - Add timestamp
-  - Display in alphabetic order
+  - Add different display order methods
 - User creation

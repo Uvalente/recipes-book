@@ -16,6 +16,7 @@ function App() {
 
   useEffect(() => {
     db.collection('recipes')
+      .orderBy('name')
       .onSnapshot(snapShot => {
         const recipes = []
         snapShot.forEach(recipe => {
