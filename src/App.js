@@ -17,12 +17,11 @@ function App() {
   useEffect(() => {
     db.collection('recipes')
       .onSnapshot(snapShot => {
+        const recipes = []
         snapShot.forEach(recipe => {
-          setRecipeList(currentRecipeList => [
-            ...currentRecipeList,
-            recipe.data()
-          ])
+          recipes.push(recipe.data())
         })
+        setRecipeList(recipes)
       })
 
   }, [])

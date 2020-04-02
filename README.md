@@ -35,5 +35,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Firebase db
   - Add timestamp
   - Display in alphabetic order
-- Bugfix recipe list doubling on submit
 - User creation
