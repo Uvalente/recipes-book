@@ -19,15 +19,11 @@ test('display props correctly', () => {
       recipeDescription='Cook the pasta'
       recipeCourse='Main Course'
     />)
-  const title = getByText('Amatriciana')
-  const description = getByText('Cook the pasta')
-  const course = getByText('Main Course')
-  const readMore = getByText('Read more...')
 
-  expect(title).toBeInTheDocument()
-  expect(description).toBeInTheDocument()
-  expect(course).toBeInTheDocument()
-  expect(readMore).toBeInTheDocument()
+  expect(getByText('Amatriciana')).toBeInTheDocument()
+  expect(getByText('Cook the pasta')).toBeInTheDocument()
+  expect(getByText('Main Course')).toBeInTheDocument()
+  expect(getByText('Read more...')).toBeInTheDocument()
 })
 
 test('cut long title and instructions', () => {

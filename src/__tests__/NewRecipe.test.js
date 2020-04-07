@@ -17,8 +17,7 @@ it('renders without crashing', () => {
 
 test('displays errors upon submit', () => {
   const { getByTestId, getByText } = render(newRecipeWithRouter)
-  const button = getByTestId('recipe-submit')
-  fireEvent.click(button)
+  fireEvent.click(getByTestId('recipe-submit'))
   expect(getByText(/please insert a recipe title/i)).toBeInTheDocument()
   expect(getByText(/insert recipe\'s instructions/i)).toBeInTheDocument()
   expect(getByText(/select a course type/i)).toBeInTheDocument()

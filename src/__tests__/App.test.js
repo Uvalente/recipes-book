@@ -15,32 +15,25 @@ it('renders without crashing', () => {
 test('creating a recipe display it on the homepage', async () => {
   const { getByText, getByTestId } = render(<App />)
 
-  const addRecipe = getByText('Add Recipe')
+  fireEvent.click(getByText('Add Recipe'))
 
-  fireEvent.click(addRecipe)
-
-  const titleForm = getByTestId('recipe-name')
-  const descriptionForm = getByTestId('recipe-description')
-  const courseForm = getByTestId('recipe-course')
-  const button = getByTestId('recipe-submit')
-
-  fireEvent.change(titleForm, {
+  fireEvent.change(getByTestId('recipe-name'), {
     target: {
       value: 'Amatriciana'
     }
   })
-  fireEvent.change(descriptionForm, {
+  fireEvent.change(getByTestId('recipe-description'), {
     target: {
       value: 'Cook the pasta'
     }
   })
-  fireEvent.change(courseForm, {
+  fireEvent.change(getByTestId('recipe-course'), {
     target: {
       value: 'Main Course'
     }
   })
 
-  await act(async () => fireEvent.click(button))
+  await act(async () => fireEvent.click(getByTestId('recipe-submit')))
 
   const title = await waitForElement(() => getByText('Amatriciana'))
   const description = await waitForElement(() => getByText('Cook the pasta'))
