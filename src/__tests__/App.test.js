@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitForElement } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import deleteColletion from '../../resetDatabase'
 
+afterEach(() => act(() => deleteColletion('recipes')))
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -37,11 +39,12 @@ test('creating a recipe display it on the homepage', async () => {
       value: 'Main Course'
     }
   })
+
   await act(async () => fireEvent.click(button))
 
-  const title = getByText('Amatriciana')
-  const description = getByText('Cook the pasta')
-  const course = getByText('Main Course')
+  const title = await waitForElement(() => getByText('Amatriciana'))
+  const description = await waitForElement(() => getByText('Cook the pasta'))
+  const course = await waitForElement(() => getByText('Main Course'))
 
   expect(title).toBeInTheDocument()
   expect(description).toBeInTheDocument()

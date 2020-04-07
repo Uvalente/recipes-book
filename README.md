@@ -35,4 +35,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Firebase db
   - Add timestamp
   - Add different display order methods
+- Add loading message
 - User creation
