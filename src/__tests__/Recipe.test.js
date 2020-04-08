@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { render } from '@testing-library/react'
 import Recipe from '../components/recipe/Recipe'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 test('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDom.render(<Recipe />, div)
+  ReactDom.render(<Router><Recipe /></Router>, div)
 })
 
 test('display props correctly', () => {
@@ -15,7 +16,9 @@ test('display props correctly', () => {
     course: 'Dessert'
   }
   const { getByText } = render(
-    <Recipe {...recipe} />
+    <Router>
+      <Recipe {...recipe} />
+    </Router>
   )
 
   expect(getByText(recipe.name)).toBeInTheDocument()
