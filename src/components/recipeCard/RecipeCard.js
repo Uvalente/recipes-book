@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './RecipeCard.css'
 
 const RecipeCard = (props) => {
@@ -27,7 +28,9 @@ const RecipeCard = (props) => {
           }
         </p>
         <p className='read-more'>
-          Read more...
+          <Link to={`/recipes/${props.id}`} >
+            Read more...
+          </Link>
         </p>
       </div>
     </div>

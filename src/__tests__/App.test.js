@@ -18,19 +18,13 @@ test('creating a recipe display it on the homepage', async () => {
   fireEvent.click(getByText('Add Recipe'))
 
   fireEvent.change(getByTestId('recipe-name'), {
-    target: {
-      value: 'Amatriciana'
-    }
+    target: { value: 'Amatriciana' }
   })
   fireEvent.change(getByTestId('recipe-description'), {
-    target: {
-      value: 'Cook the pasta'
-    }
+    target: { value: 'Cook the pasta' }
   })
   fireEvent.change(getByTestId('recipe-course'), {
-    target: {
-      value: 'Main Course'
-    }
+    target: { value: 'Main Course' }
   })
 
   await act(async () => fireEvent.click(getByTestId('recipe-submit')))
@@ -42,4 +36,28 @@ test('creating a recipe display it on the homepage', async () => {
   expect(title).toBeInTheDocument()
   expect(description).toBeInTheDocument()
   expect(course).toBeInTheDocument()
+})
+
+test('click Read more... display recipe page', async () => {
+  const { getByText, getByTestId } = render(<App />)
+  const recipeInstruction = 'I am the super long text'.repeat(20)
+  fireEvent.click(getByText('Add Recipe'))
+
+  fireEvent.change(getByTestId('recipe-name'), {
+    target: { value: 'Long recipe' }
+  })
+  fireEvent.change(getByTestId('recipe-description'), {
+    target: { value: recipeInstruction }
+  })
+  fireEvent.change(getByTestId('recipe-course'), {
+    target: { value: 'Main Course' }
+  })
+
+  await act(async () => fireEvent.click(getByTestId('recipe-submit')))
+
+  const readMore = await waitForElement(() => getByText('Read more...'))
+
+  await act(async () => fireEvent.click(readMore))
+
+  expect(await getByText(recipeInstruction)).toBeInTheDocument()
 })

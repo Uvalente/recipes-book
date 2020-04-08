@@ -7,6 +7,7 @@ import {
 import Header from './components/header/Header'
 import NewRecipe from './components/newRecipe/NewRecipe'
 import RecipeCard from './components/recipeCard/RecipeCard'
+import Recipe from './components/recipe/Recipe'
 import Footer from './components/footer/Footer'
 import './App.css'
 import db from './firebase'
@@ -30,6 +31,7 @@ function App() {
   const recipeComponents = recipeList.map((recipe, index) =>
     <RecipeCard
       key={index}
+      id={index}
       recipeName={recipe.name}
       recipeDescription={recipe.description}
       recipeCourse={recipe.course}
@@ -49,6 +51,7 @@ function App() {
           <Route path='/recipes/new'>
             <NewRecipe />
           </Route>
+          <Route path='/recipes/:id' render={(props)=> <Recipe {...recipeList[props.match.params.id]} />} />
         </Switch>
         <Footer />
       </div>

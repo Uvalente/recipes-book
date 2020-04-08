@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { render, getByTestId } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Recipe from '../components/recipe/Recipe'
 
 test('renders without crashing', () => {

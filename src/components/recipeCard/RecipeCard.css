@@ -43,3 +43,8 @@ p {
   font-weight: 700;
   font-size: 0.8rem;
 }
+
+.read-more a {
+  color: black;
+  text-decoration: none;
+}
