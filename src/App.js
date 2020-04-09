@@ -11,6 +11,7 @@ import Recipe from './components/recipe/Recipe'
 import Footer from './components/footer/Footer'
 import './App.css'
 import { db } from './firebase'
+import UserProvider from './providers/UserProvider'
 
 function App() {
   const [recipeList, setRecipeList] = useState([])
@@ -39,23 +40,25 @@ function App() {
   )
 
   return (
-    <Router>
-      <div className='container'>
-        <Header />
-        <Switch>
-          <Route exact path='/'>
-            <div className='recipes-wrapper'>
-              {recipeComponents}
-            </div>
-          </Route>
-          <Route path='/recipes/new'>
-            <NewRecipe />
-          </Route>
-          <Route path='/recipes/:id' render={(props) => <Recipe {...recipeList[props.match.params.id]} />} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <UserProvider>
+      <Router>
+        <div className='container'>
+          <Header />
+          <Switch>
+            <Route exact path='/'>
+              <div className='recipes-wrapper'>
+                {recipeComponents}
+              </div>
+            </Route>
+            <Route path='/recipes/new'>
+              <NewRecipe />
+            </Route>
+            <Route path='/recipes/:id' render={(props) => <Recipe {...recipeList[props.match.params.id]} />} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </UserProvider>
   );
 }
 
