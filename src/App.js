@@ -12,6 +12,7 @@ import Footer from './components/footer/Footer'
 import './App.css'
 import { db } from './firebase'
 import UserProvider from './providers/UserProvider'
+import Signup from './components/signup/Signup'
 
 function App() {
   const [recipeList, setRecipeList] = useState([])
@@ -49,6 +50,9 @@ function App() {
               <div className='recipes-wrapper'>
                 {recipeComponents}
               </div>
+            </Route>
+            <Route path='/signup'>
+              <Signup />
             </Route>
             <Route path='/recipes/new'>
               <NewRecipe />

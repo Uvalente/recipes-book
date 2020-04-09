@@ -18,4 +18,40 @@ firebase.initializeApp(config);
 const auth = firebase.auth()
 const db = firebase.firestore();
 
-export { auth, db }
+const createUserDocument = async (user, data) => {
+  if (!user) return
+
+  const userRef = db.doc(`users/${user.uid}`)
+  const snapshot = await userRef.get()
+
+  if (!snapshot.exists) {
+    const { displayName, email } = user
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        ...data
+      })
+    } catch (error) {
+      console.log('from create user', error)
+    }
+  }
+
+  return getUserDocument(user.uid)
+}
+
+const getUserDocument = async uid => {
+  if (!uid) return
+
+  try {
+    const userDocument = await db.doc(`users/${uid}`).get()
+    return {
+      uid,
+      ...userDocument.data()
+    }
+  } catch (error) {
+    console.log('from get user', error)
+  }
+}
+
+export { auth, db, createUserDocument }

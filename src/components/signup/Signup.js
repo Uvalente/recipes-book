@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { auth, createUserDocument } from '../../firebase'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    displayName: '',
     email: '',
     password: ''
   })
@@ -15,8 +16,17 @@ const Signup = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(formData.email, formData.password)
+      createUserDocument(user, { displayName: formData.displayName })
+    } catch (error) {
+      // setError message
+      console.log(error)
+      // resetForm
+    }
+
   }
 
   return (
@@ -25,33 +35,35 @@ const Signup = () => {
         Username:
         <br />
         <input
-        type='text'
-        name='username'
-        value={formData.username}
-        onChange={handleChange}
-        required
+          type='text'
+          name='displayName'
+          value={formData.displayName}
+          onChange={handleChange}
+          required
         />
       </label>
+      <br />
       <label>
         Email:
         <br />
         <input
-        type='email'
-        name='email'
-        value={formData.email}
-        onChange={handleChange}
-        required
+          type='email'
+          name='email'
+          value={formData.email}
+          onChange={handleChange}
+          required
         />
       </label>
+      <br />
       <label>
         Password:
         <br />
         <input
-        type='password'
-        name='password'
-        value={formData.password}
-        onChange={handleChange}
-        required
+          type='password'
+          name='password'
+          value={formData.password}
+          onChange={handleChange}
+          required
         />
       </label>
       <button>Sign up</button>
