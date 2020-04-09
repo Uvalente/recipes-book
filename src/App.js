@@ -10,7 +10,7 @@ import RecipeCard from './components/recipeCard/RecipeCard'
 import Recipe from './components/recipe/Recipe'
 import Footer from './components/footer/Footer'
 import './App.css'
-import db from './firebase'
+import { db } from './firebase'
 
 function App() {
   const [recipeList, setRecipeList] = useState([])
@@ -51,7 +51,7 @@ function App() {
           <Route path='/recipes/new'>
             <NewRecipe />
           </Route>
-          <Route path='/recipes/:id' render={(props)=> <Recipe {...recipeList[props.match.params.id]} />} />
+          <Route path='/recipes/:id' render={(props) => <Recipe {...recipeList[props.match.params.id]} />} />
         </Switch>
         <Footer />
       </div>
