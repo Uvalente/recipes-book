@@ -1,13 +1,25 @@
 import React, { useState } from 'react'
 import { auth, createUserDocument } from '../../firebase'
+import { useHistory } from 'react-router-dom'
+import './Signup.css'
 
 const Signup = () => {
+  const history = useHistory()
   const [formData, setFormData] = useState({
     displayName: '',
     email: '',
     password: ''
   })
   const [error, setError] = useState(null)
+
+  const resetForm = () => {
+    setFormData({
+      displayName: '',
+      email: '',
+      password: ''
+    })
+    setError(null)
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,52 +33,59 @@ const Signup = () => {
     try {
       const { user } = await auth.createUserWithEmailAndPassword(formData.email, formData.password)
       createUserDocument(user, { displayName: formData.displayName })
+      resetForm()
+      history.push('/')
     } catch (error) {
-      // setError message
-      console.log(error)
-      // resetForm
+      setError(error.message)
     }
-
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Username:
+      {error && <p className='error signup-error'>{error}</p>}
+      <div className='field-wrapper'>
+        <label>
+          Username:
         <br />
-        <input
-          type='text'
-          name='displayName'
-          value={formData.displayName}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <br />
-      <label>
-        Email:
+          <input
+            className='input-field'
+            type='text'
+            name='displayName'
+            value={formData.displayName}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
+      <div className='field-wrapper'>
+        <label>
+          Email:
         <br />
-        <input
-          type='email'
-          name='email'
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <br />
-      <label>
-        Password:
+          <input
+            className='input-field'
+            type='email'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
+      <div className='field-wrapper'>
+        <label>
+          Password:
         <br />
-        <input
-          type='password'
-          name='password'
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <button>Sign up</button>
+          <input
+            className='input-field'
+            type='password'
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
+      <button className='submit-button'>Sign up</button>
     </form>
   )
 }
