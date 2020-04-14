@@ -5,6 +5,20 @@ import { UserContext } from '../../providers/UserProvider'
 import './Header.css'
 
 const Header = () => {
+  const AuthHeader = () =>
+    <div>
+      <Link to={'/'}>Home</Link>
+      <Link to={'/recipes/new'}>Add Recipe</Link>
+      <Link to={'/'} onClick={() => auth.signOut()}>Sign Out</Link>
+    </div>
+
+  const NonAuthHeader = () => 
+    <div>
+      <Link to={'/'}>Home</Link>
+      <Link to={'/signup'}>Register</Link>
+      <Link to={'/login'}>Log In</Link>
+    </div>
+
   return (
     <nav>
       <h1>Your recipe book</h1>
@@ -13,17 +27,9 @@ const Header = () => {
           currentUser =>
             currentUser.user
               ?
-              <div>
-                <Link to={'/'}>Home</Link>
-                <Link to={'/recipes/new'}>Add Recipe</Link>
-                <Link to={'/'} onClick={() => auth.signOut()}>Sign Out</Link>
-              </div>
+              <AuthHeader />
               :
-              <div>
-                <Link to={'/'}>Home</Link>
-                <Link to={'/signup'}>Register</Link>
-                <Link to={'/login'}>Log In</Link>
-              </div>
+              <NonAuthHeader />
         }
       </UserContext.Consumer>
     </nav>

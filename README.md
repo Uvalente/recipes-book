@@ -36,4 +36,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   - Add timestamp
   - Add different display order methods
 - Add loading message
+- Add route protection
 - User creation
