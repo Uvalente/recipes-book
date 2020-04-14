@@ -10,7 +10,6 @@ const UserProvider = (props) => {
     auth.onAuthStateChanged(userAuth => {
       setUser({ user: userAuth })
     })
-    console.log(user)
   }, [])
 
   return (

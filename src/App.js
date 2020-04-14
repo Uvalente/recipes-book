@@ -10,8 +10,8 @@ import RecipeCard from './components/recipeCard/RecipeCard'
 import Recipe from './components/recipe/Recipe'
 import Footer from './components/footer/Footer'
 import './App.css'
-import { db } from './firebase'
-import UserProvider from './providers/UserProvider'
+import { db, auth } from './firebase'
+import UserProvider, { UserContext } from './providers/UserProvider'
 import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
 
@@ -66,6 +66,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+        }
     </UserProvider>
   );
 }
