@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { auth } from '../../firebase'
 
 const Login = () => {
+  const history = useHistory()
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -10,39 +13,53 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(currentData => {
-      return { ...currentData, [name]: value}
+      return { ...currentData, [name]: value }
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      await auth.signInWithEmailAndPassword(formData.email, formData.password)
+      history.push('/')
+    } catch (error) {
+      setError(error.message)
+    }
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Email:
+      {error && <p className='error signup-error'>{error}</p>}
+      <div className='field-wrapper'>
+        <label>
+          Email:
         <br />
-        <input
-          type='email'
-          name='email'
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Password:
+          <input
+            className='input-field'
+            type='email'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
+      <div className='field-wrapper'>
+        <label>
+          Password:
         <br />
-        <input
-          type='password'
-          name='password'
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <button>Log in</button>
+          <input
+            className='input-field'
+            type='password'
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
+
+      <button className='submit-button'>Log in</button>
     </form>
   )
 }

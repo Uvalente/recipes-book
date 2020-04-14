@@ -13,6 +13,7 @@ import './App.css'
 import { db } from './firebase'
 import UserProvider from './providers/UserProvider'
 import Signup from './components/signup/Signup'
+import Login from './components/login/Login'
 
 function App() {
   const [recipeList, setRecipeList] = useState([])
@@ -53,6 +54,9 @@ function App() {
             </Route>
             <Route path='/signup'>
               <Signup />
+            </Route>
+            <Route path='/login'>
+              <Login />
             </Route>
             <Route path='/recipes/new'>
               <NewRecipe />
