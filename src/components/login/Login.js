@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { auth } from '../../firebase'
 
 const Login = () => {
@@ -28,39 +28,42 @@ const Login = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <p className='error signup-error'>{error}</p>}
-      <div className='field-wrapper'>
-        <label>
-          Email:
+      <form onSubmit={handleSubmit}>
+        {error && <p className='error signup-error'>{error}</p>}
+        <div className='field-wrapper'>
+          <label>
+            Email:
         <br />
-          <input
-            className='input-field'
-            type='email'
-            name='email'
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-      </div>
-      <div className='field-wrapper'>
-        <label>
-          Password:
+            <input
+              className='input-field'
+              type='email'
+              name='email'
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div className='field-wrapper'>
+          <label>
+            Password:
         <br />
-          <input
-            className='input-field'
-            type='password'
-            name='password'
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </label>
-      </div>
+            <input
+              className='input-field'
+              type='password'
+              name='password'
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
 
-      <button className='submit-button'>Log in</button>
-    </form>
+        <button className='submit-button'>Log in</button>
+        <p className='link-to'>
+          Don't have an account? <Link to={'/signup'}>Sign up here.</Link>
+        </p>
+      </form>
   )
 }
 

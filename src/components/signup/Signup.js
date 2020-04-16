@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { auth, createUserDocument } from '../../firebase'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import './Signup.css'
 
 const Signup = () => {
@@ -86,6 +86,9 @@ const Signup = () => {
         </label>
       </div>
       <button className='submit-button'>Sign up</button>
+      <p className='link-to'>
+        Already have an account? <Link to={'/login'}>Log in here.</Link>
+      </p>
     </form>
   )
 }
