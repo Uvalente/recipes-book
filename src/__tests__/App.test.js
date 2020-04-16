@@ -26,11 +26,23 @@ it('renders without crashing', () => {
 });
 
 test('creating a recipe display it on the homepage', async () => {
-  const { getByText, getByTestId } = render(<App />)
+  const { getByText, getByTestId, getByLabelText } = render(<App />)
 
-  await act(async () => auth.signInWithEmailAndPassword('test@example.com', 'password'))
+  fireEvent.click(getByText('Log In'))
 
-  fireEvent.click(getByText('Add Recipe'))
+  fireEvent.change(getByLabelText('Email:'), {
+    target: { value: 'test@example.com' }
+  })
+
+  fireEvent.change(getByLabelText('Password:'), {
+    target: { value: 'password' }
+  })
+
+  await act(async () => fireEvent.click(getByText('Log in')))
+
+  const addRecipeLink = await waitForElement(() => getByText('Add Recipe'))
+
+  fireEvent.click(addRecipeLink)
 
   fireEvent.change(getByTestId('recipe-name'), {
     target: { value: 'Amatriciana' }

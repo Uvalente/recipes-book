@@ -54,4 +54,4 @@ const getUserDocument = async uid => {
   }
 }
 
-export { auth, db, createUserDocument }
+export { auth, db, createUserDocument, getUserDocument }
