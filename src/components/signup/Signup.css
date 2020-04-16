@@ -1,0 +1,14 @@
+.signup-error {
+  padding-bottom: 1rem;
+}
+
+.link-to {
+  padding-top: 2rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.link-to a {
+  text-decoration: none;
+  padding: 0;
+  color: black;
+}

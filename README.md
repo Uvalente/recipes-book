@@ -33,7 +33,13 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   - Upload picture
   - Ingredients form
 - Firebase db
+  - Assign recipes to user
+  - Display only your recipes
+  - Look for other users
+  - Display other user recipes
   - Add timestamp
   - Add different display order methods
+  - Add writing rules to db
 - Add loading message
-- User creation
+- Add route protection
+- User reset password

@@ -1,4 +1,4 @@
-import db from './src/firebase'
+import { db } from './src/firebase'
 
 function deleteCollection(collectionName) {
   let collectionRef = db.collection(collectionName);

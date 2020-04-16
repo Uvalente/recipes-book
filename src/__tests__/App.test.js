@@ -4,8 +4,21 @@ import App from '../App';
 import { fireEvent, render, waitForElement } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import deleteColletion from '../../resetDatabase'
+import { auth } from '../firebase'
 
-afterEach(() => act(() => deleteColletion('recipes')))
+// beforeAll(async () => await auth.createUserWithEmailAndPassword('test@example.com', 'password'))
+afterEach(async () => await act(async () => deleteColletion('recipes')))
+// afterAll(async () => {
+//   console.log('afterall start')
+//   let user = await auth.currentUser
+//   await user.delete().then(() => {
+//     console.log('user deleted')
+//   }).catch(error => {
+//     console.log('error', error)
+//   })
+//   console.log('afterall')
+// })
+
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -14,6 +27,8 @@ it('renders without crashing', () => {
 
 test('creating a recipe display it on the homepage', async () => {
   const { getByText, getByTestId } = render(<App />)
+
+  await act(async () => auth.signInWithEmailAndPassword('test@example.com', 'password'))
 
   fireEvent.click(getByText('Add Recipe'))
 
@@ -40,6 +55,9 @@ test('creating a recipe display it on the homepage', async () => {
 
 test('click Read more... display recipe page', async () => {
   const { getByText, getByTestId } = render(<App />)
+
+  await act(async () => auth.signInWithEmailAndPassword('test@example.com', 'password'))
+
   const recipeInstruction = 'I am the super long text'.repeat(20)
   fireEvent.click(getByText('Add Recipe'))
 
