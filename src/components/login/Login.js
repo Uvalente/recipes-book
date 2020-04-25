@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { auth } from '../../firebase'
+import './Login.css'
 
 const Login = () => {
   const history = useHistory()
@@ -29,6 +30,7 @@ const Login = () => {
 
   return (
       <form onSubmit={handleSubmit}>
+        <h3 className='login-header'>Please log in to use our website.</h3>
         {error && <p className='error signup-error'>{error}</p>}
         <div className='field-wrapper'>
           <label>
