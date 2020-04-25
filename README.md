@@ -53,5 +53,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
   - Add different display order methods
   - Add writing rules to db
 - Add loading message
-- Add route protection
+- Improve route protection
 - User reset password

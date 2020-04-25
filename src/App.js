@@ -41,28 +41,45 @@ function App() {
     />
   )
 
+  const AuthenticatedRoutes = () =>
+    <Switch>
+      <Route exact path='/'>
+        <div className='recipes-wrapper'>
+          {recipeComponents}
+        </div>
+      </Route>
+      <Route path='/recipes/new'>
+        <NewRecipe />
+      </Route>
+      <Route path='/recipes/:id' render={(props) => <Recipe {...recipeList[props.match.params.id]} />} />
+    </Switch>
+
+
+  const NotAuthenticatedRoutes = () =>
+    <Switch>
+      <Route exact path={['/', '/login']}>
+        <Login />
+      </Route>
+      <Route path='/signup'>
+        <Signup />
+      </Route>
+    </Switch>
+
   return (
     <UserProvider>
       <Router>
         <div className='container'>
           <Header />
-          <Switch>
-            <Route exact path='/'>
-              <div className='recipes-wrapper'>
-                {recipeComponents}
-              </div>
-            </Route>
-            <Route path='/signup'>
-              <Signup />
-            </Route>
-            <Route path='/login'>
-              <Login />
-            </Route>
-            <Route path='/recipes/new'>
-              <NewRecipe />
-            </Route>
-            <Route path='/recipes/:id' render={(props) => <Recipe {...recipeList[props.match.params.id]} />} />
-          </Switch>
+          <UserContext.Consumer>
+            {
+              currentUser =>
+                currentUser.user
+                  ?
+                  <AuthenticatedRoutes />
+                  :
+                  <NotAuthenticatedRoutes />
+            }
+          </UserContext.Consumer>
           <Footer />
         </div>
       </Router>
