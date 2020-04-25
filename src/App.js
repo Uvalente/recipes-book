@@ -41,7 +41,7 @@ function App() {
     />
   )
 
-  const AuthenticatedRoutes = () =>
+  const AuthenticatedRoutes = (props) =>
     <Switch>
       <Route exact path='/'>
         <div className='recipes-wrapper'>
@@ -49,7 +49,7 @@ function App() {
         </div>
       </Route>
       <Route path='/recipes/new'>
-        <NewRecipe />
+        <NewRecipe user={props.user} />
       </Route>
       <Route path='/recipes/:id' render={(props) => <Recipe {...recipeList[props.match.params.id]} />} />
     </Switch>
@@ -75,7 +75,7 @@ function App() {
               currentUser =>
                 currentUser.user
                   ?
-                  <AuthenticatedRoutes />
+                  <AuthenticatedRoutes user={currentUser.user} />
                   :
                   <NotAuthenticatedRoutes />
             }

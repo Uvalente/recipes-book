@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { db } from '../../firebase'
 
-const useForm = (validate) => {
+const useForm = (validate, user) => {
   const history = useHistory()
   const [recipeForm, setRecipeForm] = useState({
     recipeName: '',
@@ -37,7 +37,7 @@ const useForm = (validate) => {
   }
 
   const createRecipe = () => {
-    db.collection("recipes").add({
+    db.collection(`users/${user.uid}/recipes`).add({
       name: recipeForm.recipeName,
       description: recipeForm.recipeDescription,
       course: recipeForm.recipeCourse

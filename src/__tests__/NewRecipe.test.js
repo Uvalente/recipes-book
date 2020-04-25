@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 const newRecipeWithRouter = (
   <Router>
-    <NewRecipe onAddRecipe={() => { }} />
+    <NewRecipe onAddRecipe={() => { }} user={{uid: "uidnumber"}} />
   </Router>
 )
 
