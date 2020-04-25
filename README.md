@@ -1,7 +1,29 @@
 # Recipes Book
 
+## Work In Progress Application
+
 App where you can create your own recipe book.
 Created using React and Jest.
+
+## Setup
+
+`yarn install`
+
+To install all dependencies.
+
+To connect to the database, create `.env.development.local` && `.env.test.local` files to set the React variables as the following example.
+
+```
+REACT_APP_FIREBASE_API_KEY=key_here
+REACT_APP_FIREBASE_AUTH_DOMAIN=domain_here
+REACT_APP_FIREBASE_DATABASE_URL=db_url_here
+REACT_APP_FIREBASE_PROJECT_ID=project_id_here
+REACT_APP_FIREBASE_STORAGE_BUCKET=bucket_here
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=messaging_sender_here
+REACT_APP_FIREBASE_APP_ID=app_id_here
+REACT_APP_FIREBASE_MEASUREMENT_ID=measurement_id_here
+```
+
 
 ## Usage
 
@@ -16,16 +38,6 @@ The page will reload if you make edits.<br />
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-`yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## To Do List
 
