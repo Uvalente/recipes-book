@@ -12,20 +12,20 @@ const RecipeCollection = (props) => {
       .onSnapshot(snapShot => {
         const recipes = []
         snapShot.forEach(recipe => {
-          recipes.push(recipe.data())
+          recipes.push({id: recipe.id, data: recipe.data()})
         })
         setRecipeList(recipes)
       })
 
   }, [])
 
-  const recipeComponents = recipeList.map((recipe, index) =>
+  const recipeComponents = recipeList.map(recipe =>
     <RecipeCard
-      key={index}
-      id={index}
-      recipeName={recipe.name}
-      recipeDescription={recipe.description}
-      recipeCourse={recipe.course}
+      key={recipe.id}
+      id={recipe.id}
+      recipeName={recipe.data.name}
+      recipeDescription={recipe.data.description}
+      recipeCourse={recipe.data.course}
     />
   )
 
