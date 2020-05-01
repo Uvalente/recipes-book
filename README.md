@@ -45,7 +45,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
   - Upload picture
   - Ingredients form
 - Firebase db
-  - Display only your recipes
   - Look for other users
   - Display other user recipes
   - Add timestamp

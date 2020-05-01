@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import RecipeCard from '../recipeCard/RecipeCard'
-import { db, auth } from '../../firebase'
+import { db } from '../../firebase'
 
 
 const RecipeCollection = (props) => {
   const [recipeList, setRecipeList] = useState([])
-  console.log('I am loading 4 times?!')
+  console.log('I am loading 4 times?! RecipeCollection')
   useEffect(() => {
     db.collection(`users/${props.user.uid}/recipes`)
       .orderBy('name')

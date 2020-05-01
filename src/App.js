@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,18 +15,22 @@ import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
 
 function App() {
-  const AuthenticatedRoutes = (props) =>
-    <Switch>
+
+  const AuthenticatedRoutes = (props) => {
+    return (<Switch>
       <Route exact path='/'>
         <div className='recipes-wrapper'>
-          <RecipeCollection user={props.user}/>
+          <RecipeCollection user={props.user} />
         </div>
       </Route>
       <Route path='/recipes/new'>
         <NewRecipe user={props.user} />
       </Route>
-      {/* <Route path='/recipes/:id' render={(props) => <Recipe {...recipeList[props.match.params.id]} />} /> */}
-    </Switch>
+      <Route path='/recipes/:id'>
+        <Recipe />
+      </Route>
+    </Switch>)
+  }
 
 
   const NotAuthenticatedRoutes = () =>
