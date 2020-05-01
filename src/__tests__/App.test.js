@@ -7,7 +7,7 @@ import deleteColletion from '../../resetDatabase'
 import { auth } from '../firebase'
 
 // beforeAll(async () => await auth.createUserWithEmailAndPassword('test@example.com', 'password'))
-afterEach(async () => await act(async () => deleteColletion('recipes')))
+afterEach(async () => await act(async () => await deleteColletion('users/2PefFhWa7LOGt172vdx6w60Itz32/recipes')))
 // afterAll(async () => {
 //   console.log('afterall start')
 //   let user = await auth.currentUser
@@ -66,12 +66,25 @@ test('creating a recipe display it on the homepage', async () => {
 })
 
 test('click Read more... display recipe page', async () => {
-  const { getByText, getByTestId } = render(<App />)
+  const { getByText, getByTestId, getByLabelText } = render(<App />)
 
-  await act(async () => auth.signInWithEmailAndPassword('test@example.com', 'password'))
+  fireEvent.click(getByText('Log In'))
+
+  fireEvent.change(getByLabelText('Email:'), {
+    target: { value: 'test@example.com' }
+  })
+
+  fireEvent.change(getByLabelText('Password:'), {
+    target: { value: 'password' }
+  })
+
+  await act(async () => fireEvent.click(getByText('Log in')))
 
   const recipeInstruction = 'I am the super long text'.repeat(20)
-  fireEvent.click(getByText('Add Recipe'))
+
+  const addRecipeLink = await waitForElement(() => getByText('Add Recipe'))
+
+  fireEvent.click(addRecipeLink)
 
   fireEvent.change(getByTestId('recipe-name'), {
     target: { value: 'Long recipe' }
@@ -89,5 +102,7 @@ test('click Read more... display recipe page', async () => {
 
   await act(async () => fireEvent.click(readMore))
 
-  expect(await getByText(recipeInstruction)).toBeInTheDocument()
+  const longText = await waitForElement(() => getByText(recipeInstruction))
+
+  expect(longText).toBeInTheDocument()
 })

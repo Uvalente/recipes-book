@@ -1,9 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { db, auth } from '../../firebase'
 import './Recipe.css'
 
-const Recipe = (props) => {
-  const { name, description, course } = props
+const Recipe = () => {
+  const [recipe, setRecipe] = useState({})
+  const { id } = useParams()
+
+  useEffect(() => {
+    const getRecipe = async () => {
+      let recipeRef = db.collection(`users/${auth.currentUser.uid}/recipes`).doc(id)
+      let getDoc = await recipeRef.get()
+      setRecipe(getDoc.data())
+    }
+    getRecipe()
+  }, [])
+
+  const { name, description, course } = recipe
+
+  console.log('I am loading 4 times?! Recipe')
   return (
     <div className='recipe-wrap'>
       <div className='top-side'>
