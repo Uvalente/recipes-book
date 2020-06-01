@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,14 +10,15 @@ import RecipeCollection from './components/recipeCollection/RecipeCollection'
 import Recipe from './components/recipe/Recipe'
 import Footer from './components/footer/Footer'
 import './App.css'
-import UserProvider, { UserContext } from './providers/UserProvider'
+import { UserContext } from './providers/UserProvider'
 import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
 
 function App() {
+  const user = useContext(UserContext)
 
-  const AuthenticatedRoutes = (props) => {
-    return (<Switch>
+  const AuthenticatedRoutes = (props) =>
+    <Switch>
       <Route exact path='/'>
         <div className='recipes-wrapper'>
           <RecipeCollection user={props.user} />
@@ -29,8 +30,8 @@ function App() {
       <Route path='/recipes/:id'>
         <Recipe />
       </Route>
-    </Switch>)
-  }
+    </Switch>
+
 
 
   const NotAuthenticatedRoutes = () =>
@@ -44,24 +45,19 @@ function App() {
     </Switch>
 
   return (
-    <UserProvider>
-      <Router>
-        <div className='container'>
-          <Header />
-          <UserContext.Consumer>
-            {
-              currentUser =>
-                currentUser.user
-                  ?
-                  <AuthenticatedRoutes user={currentUser.user} />
-                  :
-                  <NotAuthenticatedRoutes />
-            }
-          </UserContext.Consumer>
-          <Footer />
-        </div>
-      </Router>
-    </UserProvider>
+    <Router>
+      <div className='container'>
+        <Header />
+        {
+          user
+            ?
+            <AuthenticatedRoutes user={user} />
+            :
+            <NotAuthenticatedRoutes />
+        }
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

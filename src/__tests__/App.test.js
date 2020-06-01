@@ -38,7 +38,8 @@ test('creating a recipe display it on the homepage', async () => {
     target: { value: 'password' }
   })
 
-  await act(async () => fireEvent.click(getByText('Log in')))
+  // await act(async () => fireEvent.click(getByText('Log in')))
+  fireEvent.click(getByText('Log in'))
 
   const addRecipeLink = await waitForElement(() => getByText('Add Recipe'))
 

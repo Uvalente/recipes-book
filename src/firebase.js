@@ -37,16 +37,16 @@ const createUserDocument = async (user, data) => {
     }
   }
 
-  return getUserDocument(user.uid)
+  return getUserDocument(user)
 }
 
-const getUserDocument = async uid => {
-  if (!uid) return
+const getUserDocument = async user => {
+  if (!user) return
 
   try {
-    const userDocument = await db.doc(`users/${uid}`).get()
+    const userDocument = await db.doc(`users/${user.uid}`).get()
     return {
-      uid,
+      uid: user.uid,
       ...userDocument.data()
     }
   } catch (error) {

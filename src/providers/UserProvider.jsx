@@ -1,15 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { auth, createUserDocument } from '../firebase'
+import { auth, getUserDocument } from '../firebase'
 
-export const UserContext = createContext({ user: null })
+export const UserContext = createContext()
 
 const UserProvider = (props) => {
-  const [user, setUser] = useState({ user: null })
+  const [user, setUser] = useState()
 
   useEffect(() => {
     auth.onAuthStateChanged(async userAuth => {
-      const user = await createUserDocument(userAuth)
-      setUser({ user })
+      const user = await getUserDocument(userAuth)
+      setUser(user)
     })
   }, [])
 
