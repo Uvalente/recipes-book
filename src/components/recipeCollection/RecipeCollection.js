@@ -26,7 +26,7 @@ const RecipeCollection = (props) => {
     }
 
     fetchData()
-  }, [])
+  }, [props.user.uid])
 
   const recipeComponents = recipeList.map(recipe =>
     <RecipeCard

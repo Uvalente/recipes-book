@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import RecipeCard from '../components/recipeCard/RecipeCard'
+import RecipeCard from './RecipeCard'
 import ReactDom from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 

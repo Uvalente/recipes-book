@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { render } from '@testing-library/react'
-import Recipe from '../components/recipe/Recipe'
+import Recipe from './Recipe'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 test('renders without crashing', () => {

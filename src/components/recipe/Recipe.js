@@ -14,7 +14,7 @@ const Recipe = () => {
       setRecipe(getDoc.data())
     }
     getRecipe()
-  }, [])
+  }, [id])
 
   const { name, description, course } = recipe
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import NewRecipe from '../components/newRecipe/NewRecipe';
+import NewRecipe from './NewRecipe';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
 

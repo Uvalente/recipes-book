@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Signup from '../components/signup/Signup'
+import Signup from './Signup'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { render, fireEvent, waitForElement } from '@testing-library/react'
 

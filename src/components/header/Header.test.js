@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { act } from 'react-dom/test-utils'
-import Header from '../components/header/Header'
+import Header from './Header'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { render } from '@testing-library/react'
-import { auth, createUserDocument } from '../firebase'
+import { auth, createUserDocument } from '../../firebase'
 
 // beforeAll(async () => {
 //   const { user } = await auth.createUserWithEmailAndPassword('tester@example.com', 'password')
