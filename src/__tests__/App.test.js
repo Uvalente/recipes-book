@@ -25,11 +25,11 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
-test('creating a recipe display it on the homepage', async () => {
+test.skip('creating a recipe display it on the homepage', async () => {
   const { getByText, getByTestId, getByLabelText } = render(<App />)
-
+  
   fireEvent.click(getByText('Log In'))
-
+  
   fireEvent.change(getByLabelText('Email:'), {
     target: { value: 'test@example.com' }
   })
@@ -38,8 +38,7 @@ test('creating a recipe display it on the homepage', async () => {
     target: { value: 'password' }
   })
 
-  // await act(async () => fireEvent.click(getByText('Log in')))
-  fireEvent.click(getByText('Log in'))
+  await act(async () => fireEvent.click(getByText('Log in')))
 
   const addRecipeLink = await waitForElement(() => getByText('Add Recipe'))
 
@@ -66,7 +65,7 @@ test('creating a recipe display it on the homepage', async () => {
   expect(course).toBeInTheDocument()
 })
 
-test('click Read more... display recipe page', async () => {
+test.skip('click Read more... display recipe page', async () => {
   const { getByText, getByTestId, getByLabelText } = render(<App />)
 
   fireEvent.click(getByText('Log In'))

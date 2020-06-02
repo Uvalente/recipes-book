@@ -38,7 +38,7 @@ test('display stranger on the header if not logged in', () => {
 
 test.skip('display username on the header if logged in', async () => {
   const { getByText, rerender } = render(<Router><Header /></Router>)
-  await act(async () => auth.signInWithEmailAndPassword('tester@example.com', 'password'))
+  await act(async () => await auth.signInWithEmailAndPassword('tester@example.com', 'password'))
   rerender(<Router><Header /></Router>)
   const header = getByText('Tester recipe book')
   console.log('HEEEEERE', header)

@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { auth, getUserDocument } from '../firebase'
 
-export const UserContext = createContext()
+export const UserContext = createContext(null)
 
 const UserProvider = (props) => {
   const [user, setUser] = useState()
