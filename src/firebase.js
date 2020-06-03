@@ -1,6 +1,7 @@
 import firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
+import "firebase/storage"
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,8 +16,9 @@ const config = {
 
 firebase.initializeApp(config);
 
-const auth = firebase.auth()
+const auth = firebase.auth();
 const db = firebase.firestore();
+const storage = firebase.storage();
 
 const createUserDocument = async (user, data) => {
   if (!user) return
@@ -54,4 +56,4 @@ const getUserDocument = async user => {
   }
 }
 
-export { auth, db, createUserDocument, getUserDocument }
+export { auth, db, storage, createUserDocument, getUserDocument }

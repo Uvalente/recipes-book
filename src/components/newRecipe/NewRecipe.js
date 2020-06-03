@@ -24,6 +24,7 @@ const NewRecipe = (props) => {
             name='recipeName'
             value={recipeForm.recipeName}
             onChange={recipeHandleChange}
+            autoComplete="off"
             required
           />
           <br />
@@ -51,7 +52,7 @@ const NewRecipe = (props) => {
           Course type:
           <br />
           <select
-          className={`input-field ${errors.recipeCourse && "error-input"}`}
+            className={`input-field ${errors.recipeCourse && "error-input"}`}
             data-testid='recipe-course'
             name='recipeCourse'
             value={recipeForm.recipeCourse}
@@ -66,6 +67,18 @@ const NewRecipe = (props) => {
           </select>
           <br />
           {errors.recipeCourse && <span className='error'>{errors.recipeCourse}</span>}
+        </label>
+      </div>
+      <div className='field-wrapper'>
+        <label>
+          Upload picture:
+          <br />
+          <input
+            type="file"
+            name="recipePicture"
+            accept="image/*"
+            onChange={recipeHandleChange}
+          />
         </label>
       </div>
       <input
