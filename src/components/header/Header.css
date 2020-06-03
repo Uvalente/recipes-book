@@ -9,7 +9,7 @@ nav {
   background-color: rgb(24, 41, 71);
 }
 
-a {
+.navlink a {
   color: white;
   padding-left: 1rem;
 }

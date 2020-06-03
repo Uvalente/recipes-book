@@ -5,35 +5,32 @@ import './RecipeCard.css'
 const RecipeCard = (props) => {
   return (
     <div className='recipe-card'>
-      <div className='top-card'>
-        <img src={props.recipeImageUrl || "no_image.jpg"} />
-        <p data-testid='test-title'>
-          {
-            props.recipeName.length > 40 ?
-              props.recipeName.slice(0, 40) + '...'
-              :
-              props.recipeName
-          }
-        </p>
-        <p className='course' data-testid='test-course'>
-          {props.recipeCourse}
-        </p>
-      </div>
-      <div className='bottom-card'>
-        <p className="recipe-description" data-testid='test-description'>
+      <Link to={`/recipes/${props.id}`} >
+        <div className='top-card'>
+          <img src={props.recipeImageUrl || "no_image.jpg"} />
+        </div>
+        <div className='bottom-card'>
+          <p data-testid='test-title'>
+            {
+              props.recipeName.length > 30 ?
+                props.recipeName.slice(0, 30) + '...'
+                :
+                props.recipeName
+            }
+          </p>
+          <p className='course' data-testid='test-course'>
+            {props.recipeCourse}
+          </p>
+          {/* <p className="recipe-description" data-testid='test-description'>
           {
             props.recipeDescription.length > 400 ?
               props.recipeDescription.slice(0, 400) + '...'
               :
               props.recipeDescription
           }
-        </p>
-        <p className='read-more'>
-          <Link to={`/recipes/${props.id}`} >
-            Read more...
-          </Link>
-        </p>
-      </div>
+        </p> */}
+        </div>
+      </Link>
     </div>
   )
 }

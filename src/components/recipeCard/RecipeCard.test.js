@@ -31,12 +31,10 @@ test('display props correctly', () => {
   )
 
   expect(getByText('Amatriciana')).toBeInTheDocument()
-  expect(getByText('Cook the pasta')).toBeInTheDocument()
   expect(getByText('Main Course')).toBeInTheDocument()
-  expect(getByText('Read more...')).toBeInTheDocument()
 })
 
-test('cut long title and instructions', () => {
+test('cut long title', () => {
   const longString = 'I am a super long text, I am a super long text'
   const { getByTestId } = render(
     <Router>
@@ -48,7 +46,5 @@ test('cut long title and instructions', () => {
     </Router>
   )
   const title = getByTestId('test-title')
-  const description = getByTestId('test-description')
   expect(title.textContent).toMatch(/\.\.\./)
-  expect(description.textContent).toMatch(/\.\.\./)
 })

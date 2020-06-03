@@ -10,21 +10,31 @@
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-img {
-  max-width: 100%;
-  max-height: 100%;
+.top-card {
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1);
+
 }
 
-.top-card {
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.recipe-card a {
+  text-decoration: none;
 }
+
+img {
+  border-radius: 0.5rem 0.5rem 0 0;
+  max-width: 100%;
+  max-height: 260px;
+}
+
 
 .bottom-card {
   display: flex;
   position: relative;
   padding: 1rem 1rem;
   flex-grow: 1;
+  justify-content: space-between;
+  color: black;
 }
 
 .recipe-description {
@@ -36,7 +46,7 @@ p {
 }
 
 .course {
-  padding-top: 0.2rem;
+  /* padding-top: 0.2rem; */
   font-weight: 300;
   font-size: 0.8rem;
 }
