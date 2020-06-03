@@ -6,6 +6,7 @@ const RecipeCard = (props) => {
   return (
     <div className='recipe-card'>
       <div className='top-card'>
+        <img src={props.recipeImageUrl || "no_image.jpg"} />
         <p data-testid='test-title'>
           {
             props.recipeName.length > 40 ?
