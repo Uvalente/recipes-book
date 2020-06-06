@@ -7,7 +7,10 @@ const RecipeCard = (props) => {
     <div className='recipe-card'>
       <Link to={`/recipes/${props.id}`} >
         <div className='top-card'>
-          <img src={props.recipeImageUrl || "no_image.jpg"} />
+          <img
+            src={props.recipeImageUrl || "/no_image.jpg"}
+            alt={props.recipeName}
+          />
         </div>
         <div className='bottom-card'>
           <p data-testid='test-title'>

@@ -16,18 +16,24 @@ const Recipe = () => {
     getRecipe()
   }, [id])
 
-  const { name, description, course } = recipe
+  const { name, description, course, pictureUrl } = recipe
 
   console.log('I am loading 4 times?! Recipe')
   return (
     <div className='recipe-wrap'>
       <div className='top-side'>
-        <p className='recipe-title'>
-          {name}
-        </p>
-        <p className='recipe-course'>
-          {course}
-        </p>
+        <img
+          src={pictureUrl || "/no_image.jpg"}
+          alt={name}
+        />
+        <div className='top-side-infos'>
+          <p className='recipe-title'>
+            {name}
+          </p>
+          <p className='recipe-course'>
+            {course}
+          </p>
+        </div>
       </div>
       <div className='bottom-side'>
         <div className='recipe-instruction'>

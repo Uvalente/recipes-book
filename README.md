@@ -42,7 +42,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## To Do List
 
 - Form
-  - Upload picture
   - Ingredients form
 - Firebase db
   - Look for other users
@@ -50,6 +49,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
   - Add timestamp
   - Add different display order methods
   - Add writing rules to db
-- Add loading message
+- Improve loading message
 - Improve route protection
 - User reset password
+- Add Tailwind CSS

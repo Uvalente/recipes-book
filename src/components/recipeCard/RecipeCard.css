@@ -14,14 +14,14 @@
   box-sizing: border-box;
   text-align: center;
   box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1);
-
+  min-height: 260px;
 }
 
 .recipe-card a {
   text-decoration: none;
 }
 
-img {
+.top-card img {
   border-radius: 0.5rem 0.5rem 0 0;
   max-width: 100%;
   max-height: 260px;

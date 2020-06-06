@@ -1,3 +1,5 @@
+const imageUpload = "../fixtures/crab.png"
+
 describe('Recipe creation', () => {
   it('user can log in and create a recipe', () => {
     cy.visit('/login')
@@ -6,11 +8,14 @@ describe('Recipe creation', () => {
     cy.url().should('eq', 'http://localhost:3000/')
     cy.contains('Test recipe book').should('exist')
     cy.contains('Add Recipe').click()
+    cy.get('input[name=recipePicture').attachFile(imageUpload);
     cy.get('textarea').type('Instructions')
-    cy.get('select').select('Dessert')
-    cy.get('input[name=recipeName]').type('Recipe Name{enter}')
+    cy.get('select').select('Starter')
+    cy.get('input[name=recipeName]').type('Crab{enter}')
     cy.url().should('eq', 'http://localhost:3000/')
-    cy.contains('Instructions').should('exist')
-    cy.contains('Read more...').should('exist')
+    cy.contains('Crab').should('exist')
+    cy.contains('Starter').should('exist')
+    cy.contains('Crab').click()
+    cy.get('img').should('exist')
   })
 })
