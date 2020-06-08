@@ -113,7 +113,7 @@ const NewRecipe = (props) => {
           })
         }
         <br />
-        <button type='button'>+</button>
+        <button type='button' onClick={addIngredient}>+</button>
       </div>
       <div className='field-wrapper'>
         <label>

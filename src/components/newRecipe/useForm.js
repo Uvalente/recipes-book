@@ -28,6 +28,18 @@ const useForm = (validate, user) => {
     })
   }
 
+  const addIngredient = () => {
+    setRecipeForm(currentRecipeForm => {
+      return {
+        ...currentRecipeForm,
+        recipeIngredients: [
+          ...currentRecipeForm.recipeIngredients,
+          { itemName: '', itemQuantity: '', itemMeasure: '' }
+        ]
+      }
+    })
+  }
+
   const resetForm = () => {
     setRecipeForm({
       recipeName: '',
@@ -83,6 +95,7 @@ const useForm = (validate, user) => {
   return {
     recipeHandleChange,
     recipeHandleSubmit,
+    addIngredient,
     recipeForm,
     errors
   }
