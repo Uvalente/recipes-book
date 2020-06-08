@@ -8,30 +8,33 @@ const useForm = (validate, user) => {
     recipeName: '',
     recipeDescription: '',
     recipeCourse: '',
-    recipePicture: ''
+    recipePicture: '',
+    recipeIngredients: [{ itemName: '', itemQuantity: '', itemMeasure: '' }]
   })
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const recipeHandleChange = (e) => {
-    const { name, value, files } = e.target
+    const { name, value, files, dataset } = e.target
     setRecipeForm(currentRecipeForm => {
       if (files) {
         return { ...currentRecipeForm, [name]: files[0] }
+      }
+      else if (dataset.id) {
+        currentRecipeForm.recipeIngredients[dataset.id][name] = value
+        return { ...currentRecipeForm }
       }
       return { ...currentRecipeForm, [name]: value }
     })
   }
 
   const resetForm = () => {
-    setRecipeForm(currentRecipeForm => {
-      return {
-        ...currentRecipeForm,
-        recipeName: '',
-        recipeDescription: '',
-        recipeCourse: '',
-        recipePicture: ''
-      }
+    setRecipeForm({
+      recipeName: '',
+      recipeDescription: '',
+      recipeCourse: '',
+      recipePicture: '',
+      recipeIngredients: [{ itemName: '', itemQuantity: '', itemMeasure: '' }]
     })
   }
 
@@ -53,7 +56,7 @@ const useForm = (validate, user) => {
 
     if (recipeForm.recipePicture) {
       const uploadTask = storage.ref(`/recipes/${recipeForm.recipeName}/${recipeForm.recipePicture.name}`).put(recipeForm.recipePicture)
-      
+
       uploadTask.on('state_changed', snapShot => {
         // let progress = (snapShot.bytesTransferred / snapShot.totalBytes) * 100;
         // console.log('Upload is ' + progress + '% done');

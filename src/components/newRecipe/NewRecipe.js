@@ -8,6 +8,7 @@ const NewRecipe = (props) => {
     recipeHandleChange,
     recipeHandleSubmit,
     recipeForm,
+    addIngredient,
     errors
   } = useForm(validate, props.user)
 
@@ -33,22 +34,6 @@ const NewRecipe = (props) => {
       </div>
       <div className='field-wrapper'>
         <label>
-          Recipe instruction:
-          <br />
-          <textarea
-            className={`input-field ${errors.recipeDescription && "error-input"}`}
-            data-testid='recipe-description'
-            name='recipeDescription'
-            value={recipeForm.recipeDescription}
-            onChange={recipeHandleChange}
-            required
-          />
-          <br />
-          {errors.recipeDescription && <span className='error'>{errors.recipeDescription}</span>}
-        </label>
-      </div>
-      <div className='field-wrapper'>
-        <label>
           Course type:
           <br />
           <select
@@ -59,7 +44,7 @@ const NewRecipe = (props) => {
             onChange={recipeHandleChange}
             required
           >
-            <option value=''>Please choose an option</option>
+            <option value='' disabled>Please choose an option</option>
             <option value='Starter'>Starter</option>
             <option value='Main Course'>Main Course</option>
             <option value='Dessert'>Dessert</option>
@@ -79,6 +64,71 @@ const NewRecipe = (props) => {
             accept="image/*"
             onChange={recipeHandleChange}
           />
+        </label>
+      </div>
+      <div className='field-wrapper'>
+        <label>
+          Ingredients list:
+          <br />
+        </label>
+        {
+          recipeForm.recipeIngredients.map((ingredient, index) => {
+            return (
+              <div key={index}>
+                <input
+                  type='text'
+                  name='itemName'
+                  placeholder='Ingredient'
+                  data-id={index}
+                  value={recipeForm.recipeIngredients.itemName}
+                  onChange={recipeHandleChange}
+                />
+                <input
+                  type='number'
+                  name="itemQuantity"
+                  min='0'
+                  placeholder='Quantity'
+                  data-id={index}
+                  value={recipeForm.recipeIngredients.itemQuantity}
+                  onChange={recipeHandleChange}
+                />
+                <select
+                  name="itemMeasure"
+                  data-id={index}
+                  value={recipeForm.recipeIngredients.itemMeasure}
+                  onChange={recipeHandleChange}
+                  defaultValue=''
+                >
+                  <option value='' disabled>Measure</option>
+                  <option value='Gr'>Gr</option>
+                  <option value='Kg'>Kg</option>
+                  <option value='Ml'>Ml</option>
+                  <option value='L'>L</option>
+                  <option value='Tsp'>Tsp</option>
+                  <option value='Tbsp'>Tbsp</option>
+                  <option value='No'>Nº</option>
+                </select>
+              </div>
+            )
+          })
+        }
+        <br />
+        <button type='button'>+</button>
+      </div>
+      <div className='field-wrapper'>
+        <label>
+          Recipe instruction:
+          <br />
+          <textarea
+            className={`input-field ${errors.recipeDescription && "error-input"}`}
+            data-testid='recipe-description'
+            name='recipeDescription'
+            value={recipeForm.recipeDescription}
+            onChange={recipeHandleChange}
+            required
+          />
+          <br />
+          {errors.recipeDescription && <span className='error'>{errors.recipeDescription}</span>}
         </label>
       </div>
       <input

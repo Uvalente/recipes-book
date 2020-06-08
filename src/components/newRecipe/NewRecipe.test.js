@@ -24,11 +24,13 @@ test('displays errors upon submit', () => {
 })
 
 test('save recipe to state and reset form upon submit', () => {
-  const { getByTestId } = render(newRecipeWithRouter)
+  const { getByTestId, getByPlaceholderText } = render(newRecipeWithRouter)
   const title = getByTestId('recipe-name')
   const description = getByTestId('recipe-description')
   const course = getByTestId('recipe-course')
   const button = getByTestId('recipe-submit')
+  const ingredient = getByPlaceholderText('Ingredient')
+
   fireEvent.change(title, {
     target: {
       value: 'Amatriciana'
@@ -44,9 +46,15 @@ test('save recipe to state and reset form upon submit', () => {
       value: 'Main Course'
     }
   })
+  fireEvent.change(ingredient, {
+    target: {
+      value: 'Ingredient 1'
+    }
+  })
   expect(title.value).toBe('Amatriciana')
   expect(description.value).toBe('Cook the pasta')
   expect(course.value).toBe('Main Course')
+  expect(ingredient.value).toBe('Ingredient 1')
   fireEvent.click(button)
   expect(title.value).toBeFalsy()
   expect(description.value).toBeFalsy()
