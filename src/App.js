@@ -47,7 +47,7 @@ function App() {
   return (
     <Router>
       <div className='container'>
-        <Header />
+        <Header user={user}/>
         {
           user
             ?

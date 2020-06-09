@@ -1,11 +1,10 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { auth } from '../../firebase'
-import { UserContext } from '../../providers/UserProvider'
 import './Header.css'
 
-const Header = () => {
-  const user = useContext(UserContext)
+const Header = (props) => {
+  const user = props.user
 
   const AuthHeader = (props) =>
     <Fragment>
