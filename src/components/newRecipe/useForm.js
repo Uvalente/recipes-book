@@ -90,13 +90,15 @@ const useForm = (validate, user) => {
         })
       })
     }
+
+    return recipeRef.id
   }
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      createRecipe()
+      let reciperef = createRecipe()
       resetForm()
-      history.push('/')
+      history.push('/recipes/' + reciperef)
     }
   }, [errors])
 

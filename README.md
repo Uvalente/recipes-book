@@ -43,8 +43,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 - Form
   - Add recipe tag
-  - Ingredients form
-  - Redirect to created recipe
 - Firebase db
   - Look for other users
   - Display other user recipes
@@ -53,5 +51,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
   - Add writing rules to db
 - Improve loading message
 - Improve route protection
+- Resolve double rendering
+- Add Express
 - User reset password
 - Add Tailwind CSS

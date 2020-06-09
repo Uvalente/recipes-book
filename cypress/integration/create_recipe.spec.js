@@ -27,10 +27,9 @@ describe('Recipe creation', () => {
 
     cy.get('input[name=recipeName]').type('Crab{enter}')
 
-    cy.url().should('eq', 'http://localhost:3000/')
+    cy.url().should('include', '/recipes/')
     cy.contains('Crab').should('exist')
     cy.contains('Starter').should('exist')
-    cy.contains('Crab').click()
     cy.get('img').should('exist')
     cy.contains('Flour').should('exist')
     cy.contains('Gr').should('exist')
