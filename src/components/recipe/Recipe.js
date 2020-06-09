@@ -16,9 +16,19 @@ const Recipe = () => {
     getRecipe()
   }, [id])
 
-  const { name, description, course, pictureUrl } = recipe
+  const { name, description, course, pictureUrl, ingredients } = recipe
 
   console.log('I am loading 4 times?! Recipe')
+
+  const ingredientsList = ingredients ? ingredients.map((ingredient, index) => {
+    const { itemQuantity, itemMeasure, itemName } = ingredient
+    return (
+      <li key={index}>
+        {itemQuantity} {itemMeasure} {itemName}
+      </li>
+    )
+  }) : null
+
   return (
     <div className='recipe-wrap'>
       <div className='top-side'>
@@ -36,6 +46,7 @@ const Recipe = () => {
         </div>
       </div>
       <div className='bottom-side'>
+        {ingredients && <ul>{ingredientsList}</ul>}
         <div className='recipe-instruction'>
           {description}
         </div>

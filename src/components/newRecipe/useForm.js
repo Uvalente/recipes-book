@@ -63,7 +63,8 @@ const useForm = (validate, user) => {
       name: recipeForm.recipeName,
       description: recipeForm.recipeDescription,
       course: recipeForm.recipeCourse,
-      pictureUrl: null
+      pictureUrl: null,
+      ingredients: recipeForm.recipeIngredients
     })
 
     if (recipeForm.recipePicture) {
