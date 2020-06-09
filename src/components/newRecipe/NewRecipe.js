@@ -9,6 +9,7 @@ const NewRecipe = (props) => {
     recipeHandleSubmit,
     recipeForm,
     addIngredient,
+    removeIngredient,
     errors
   } = useForm(validate, props.user)
 
@@ -114,6 +115,7 @@ const NewRecipe = (props) => {
         }
         <br />
         <button type='button' onClick={addIngredient}>+</button>
+        <button type='button' onClick={removeIngredient}>-</button>
       </div>
       <div className='field-wrapper'>
         <label>

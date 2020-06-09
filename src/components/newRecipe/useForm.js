@@ -40,6 +40,13 @@ const useForm = (validate, user) => {
     })
   }
 
+  const removeIngredient = () => {   
+    setRecipeForm(currentRecipeForm => {
+      return {...currentRecipeForm,
+      recipeIngredients: currentRecipeForm.recipeIngredients.slice(0,-1)}
+    })
+  }
+
   const resetForm = () => {
     setRecipeForm({
       recipeName: '',
@@ -97,6 +104,7 @@ const useForm = (validate, user) => {
     recipeHandleChange,
     recipeHandleSubmit,
     addIngredient,
+    removeIngredient,
     recipeForm,
     errors
   }

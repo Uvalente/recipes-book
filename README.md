@@ -42,7 +42,9 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## To Do List
 
 - Form
+  - Add recipe tag
   - Ingredients form
+  - Redirect to created recipe
 - Firebase db
   - Look for other users
   - Display other user recipes
