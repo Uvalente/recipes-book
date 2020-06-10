@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import Login from './Login'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, useHistory } from 'react-router-dom'
 import { render, fireEvent, waitForElement } from '@testing-library/react'
-
-
+import { auth } from '../../firebase'
 
 test('renders without crashing', () => {
   const div = document.createElement('div')
@@ -15,26 +14,52 @@ test('render error with wrong credentials', async () => {
   const { getByLabelText, getByText } = render(<Router><Login /></Router>)
 
   fireEvent.change(getByLabelText('Email:'), {
-    target: { value: 'test@example.com' }
+    target: { value: 'user@example.com' }
   })
 
   fireEvent.change(getByLabelText('Password:'), {
-    target: { value: 'passord' }
+    target: { value: 'password' }
   })
+
+  jest
+    .spyOn(auth, 'signInWithEmailAndPassword')
+    .mockImplementation(() => {
+      throw new Error('User not found')
+    })
 
   fireEvent.click(getByText('Log in'))
 
-  const passwordErrorMessage = await waitForElement(() => getByText(/password is invalid/))
+  const errorMessage = await waitForElement(() => getByText(/User not found/))
 
-  expect(passwordErrorMessage).toBeInTheDocument()
+  expect(errorMessage).toBeInTheDocument()
+})
+
+
+const mockHistoryPush = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: () => ({
+    push: mockHistoryPush
+  }),
+}));
+
+test('user can log in and his redirected to homepage', async () => {
+  const logInSpy = jest
+    .spyOn(auth, 'signInWithEmailAndPassword')
+    .mockReturnValue(true)
+
+  const { getByLabelText, getByText } = render(<Router><Login /></Router>)
 
   fireEvent.change(getByLabelText('Email:'), {
-    target: { value: 'notregistered@example.com' }
+    target: { value: 'test@example.com' }
+  })
+  fireEvent.change(getByLabelText('Password:'), {
+    target: { value: 'password' }
   })
 
   fireEvent.click(getByText('Log in'))
 
-  const userErrorMessage = await waitForElement(() => getByText(/user may have been deleted/))
-
-  expect(userErrorMessage).toBeInTheDocument()
+  expect(await logInSpy).toHaveBeenCalled()
+  expect(mockHistoryPush).toHaveBeenCalled()
 })
