@@ -1,7 +1,7 @@
 import React from 'react'
 import useForm from './useForm'
 import validate from './recipeValidation'
-import './NewRecipe.css'
+// import './NewRecipe.css'
 
 const NewRecipe = (props) => {
   const {

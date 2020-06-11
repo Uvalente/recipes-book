@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { db, auth } from '../../firebase'
-import './Recipe.css'
+// import './Recipe.css'
 
 const Recipe = () => {
   const [recipe, setRecipe] = useState({})

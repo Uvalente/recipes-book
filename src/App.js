@@ -19,7 +19,7 @@ function App() {
   const AuthenticatedRoutes = (props) =>
     <Switch>
       <Route exact path='/'>
-          <RecipeCollection user={props.user} />
+        <RecipeCollection user={props.user} />
       </Route>
       <Route path='/recipes/new'>
         <NewRecipe user={props.user} />
@@ -43,15 +43,15 @@ function App() {
 
   return (
     <Router>
+      <div className='bg-gray-100'>
         <Header />
-        <div className='bg-gray-100 mx-auto'>
-        {
-          user
-            ?
-            <AuthenticatedRoutes user={user} />
-            :
-            <NotAuthenticatedRoutes />
-        }
+          {
+            user
+              ?
+              <AuthenticatedRoutes user={user} />
+              :
+              <NotAuthenticatedRoutes />
+          }
         </div>
         <Footer />
     </Router>
