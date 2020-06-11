@@ -43,7 +43,6 @@ function App() {
 
   return (
     <Router>
-      <div className='bg-gray-100'>
         <Header />
           {
             user
@@ -52,7 +51,6 @@ function App() {
               :
               <NotAuthenticatedRoutes />
           }
-        </div>
         <Footer />
     </Router>
   );

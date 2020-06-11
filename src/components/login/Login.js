@@ -35,8 +35,8 @@ const Login = () => {
           <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl lg:py-2'>Log in</h3>
           {
             error &&
-            <div className='bg-red-100 border-t-4 border-red-400 text-red-700 mt-4 px-4 py-3 rounded-b shadow-md font-semibold'>
-              <p className='text-red-600'>{error}</p>
+            <div className='bg-red-100 border-t-4 border-red-400 text-red-600 mt-4 px-4 py-3 rounded-b shadow-md font-semibold'>
+              <p>{error}</p>
             </div>
           }
           <label className='block text-gray-900 mb-2 font-semibold pt-4' for='email'>
@@ -53,7 +53,7 @@ const Login = () => {
           />
           <label className='block text-gray-900 mb-2 font-semibold pt-4' for='password'>
             Password
-          </label>
+        </label>
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             id='password'
