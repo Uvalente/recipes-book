@@ -36,12 +36,12 @@ const Login = () => {
           {
             error &&
             <div className='bg-red-100 border-t-4 border-red-400 text-red-700 mt-4 px-4 py-3 rounded-b shadow-md font-semibold'>
-              <p className='error signup-error text-red-600'>{error}</p>
+              <p className='text-red-600'>{error}</p>
             </div>
           }
           <label className='block text-gray-900 mb-2 font-semibold pt-4' for='email'>
             Email
-        </label>
+          </label>
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             id='email'
@@ -53,7 +53,7 @@ const Login = () => {
           />
           <label className='block text-gray-900 mb-2 font-semibold pt-4' for='password'>
             Password
-        </label>
+          </label>
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             id='password'
@@ -72,7 +72,7 @@ const Login = () => {
         </form>
       </div >
       <div className='hidden lg:block lg:w-1/2 lg:relative'>
-        <img src='/egg-recipe.jpg' className='absolute inset-0 h-full w-full object-cover object-center'/>
+        <img src='/egg-recipe.jpg' className='absolute inset-0 h-full w-full object-cover object-center' />
       </div>
     </div>
 
