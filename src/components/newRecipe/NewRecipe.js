@@ -114,8 +114,8 @@ const NewRecipe = (props) => {
           )
         })
       }
-      <button type='button' onClick={addIngredient} className='mt-4 bg-blue-700 hover:bg-blue-600 text-white font-bold text-xl px-3 border-b-4 border-blue-900 hover:border-blue-800 rounded-md'>+</button>
-      <button type='button' onClick={removeIngredient} className='mt-4 ml-2 bg-blue-700 hover:bg-blue-600 text-white font-bold text-xl px-3 border-b-4 border-blue-900 hover:border-blue-800 rounded-md'>-</button>
+      <button type='button' onClick={addIngredient} className='mt-4 bg-blue-700 hover:bg-blue-600 text-white font-bold text-xl w-8 border-b-4 border-blue-900 hover:border-blue-800 rounded-md'>+</button>
+      <button type='button' onClick={removeIngredient} className='mt-4 ml-2 bg-blue-700 hover:bg-blue-600 text-white font-bold text-xl w-8 border-b-4 border-blue-900 hover:border-blue-800 rounded-md'>-</button>
       <label className='block text-gray-900 mb-2 font-semibold pt-6' for='recipeDescription'>
         Recipe instruction
       </label>

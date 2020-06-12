@@ -58,7 +58,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Delete recipe
 - CSS
  - Fix minimum h of App
- - Fix +/- buttons
+ - Fix file upload input
  - Add logo
 - Add footer content
 - Credit images in footer
