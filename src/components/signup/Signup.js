@@ -67,7 +67,7 @@ const Signup = () => {
           />
 
           <label className='block text-gray-900 mb-2 font-semibold pt-4' htmlFor='email'>
-            Email:
+            Email
           </label>
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
@@ -79,7 +79,7 @@ const Signup = () => {
             required
           />
           <label className='block text-gray-900 mb-2 font-semibold pt-4' htmlFor='password'>
-            Password:
+            Password
           </label>
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'

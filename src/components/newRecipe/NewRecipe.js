@@ -133,7 +133,7 @@ const NewRecipe = (props) => {
       <button type='button' onClick={removeIngredient} className='mt-4 ml-2 bg-blue-700 hover:bg-blue-600 text-white font-bold text-xl w-8 border-b-4 border-blue-900 hover:border-blue-800 rounded-md'>-</button>
 
       <label className='block text-gray-900 mb-2 font-semibold pt-6' htmlFor='recipeDescription'>
-        Recipe instruction
+        Recipe instructions
       </label>
       <textarea
         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-48 ${errors.recipeDescription && "border-red-400"}`}

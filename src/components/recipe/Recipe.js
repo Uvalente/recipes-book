@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { db, auth } from '../../firebase'
+import { db } from '../../firebase'
 
-const Recipe = () => {
+const Recipe = (props) => {
   const [recipe, setRecipe] = useState({})
   const { id } = useParams()
 
   useEffect(() => {
     const getRecipe = async () => {
-      let recipeRef = db.collection(`users/${auth.currentUser.uid}/recipes`).doc(id)
+      let recipeRef = db.collection(`users/${props.user.uid}/recipes`).doc(id)
       let getDoc = await recipeRef.get()
       setRecipe(getDoc.data())
     }

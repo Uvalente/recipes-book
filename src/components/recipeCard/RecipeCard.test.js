@@ -45,6 +45,6 @@ test('cut long title', () => {
       />
     </Router>
   )
-  const title = getByText(/I am a super long/)
-  expect(title).toHaveClass('truncate')
+  const title = getByText(/I am a/)
+  expect(title.classList.contains('truncate')).toBe(true)
 })

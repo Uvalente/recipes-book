@@ -25,7 +25,7 @@ function App() {
         <NewRecipe user={props.user} />
       </Route>
       <Route path='/recipes/:id'>
-        <Recipe />
+        <Recipe user={props.user} />
       </Route>
     </Switch>
 
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <Router>
-        <Header />
+        <Header user={user}/>
           {
             user
               ?
