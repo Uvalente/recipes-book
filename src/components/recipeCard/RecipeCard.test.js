@@ -36,7 +36,7 @@ test('display props correctly', () => {
 
 test('cut long title', () => {
   const longString = 'I am a super long text, I am a super long text'
-  const { getByTestId } = render(
+  const { getByText } = render(
     <Router>
       <RecipeCard
         recipeName={longString}
@@ -45,6 +45,6 @@ test('cut long title', () => {
       />
     </Router>
   )
-  const title = getByTestId('test-title')
-  expect(title.textContent).toMatch(/\.\.\./)
+  const title = getByText(/I am a/)
+  expect(title.classList.contains('truncate')).toBe(true)
 })

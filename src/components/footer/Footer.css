@@ -1,9 +1,0 @@
-footer {
-  color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  min-height: 8rem;
-  align-items: center;
-  padding-left: 3rem;
-  background-color: rgb(24, 41, 71);
-  font-size: 0.8rem;
-}

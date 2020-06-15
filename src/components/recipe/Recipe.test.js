@@ -56,7 +56,10 @@ test('display props correctly', async () => {
   expect(name).toBeInTheDocument()
   expect(getByText(recipe.description)).toBeInTheDocument()
   expect(getByText(recipe.course)).toBeInTheDocument()
-  expect(getByText(/500 Gr Flour/)).toBeInTheDocument()
-  expect(getByText(/1 Kg Water/)).toBeInTheDocument()
+  expect(getByText(/500/)).toBeInTheDocument()
+  expect(getByText(/Gr/)).toBeInTheDocument()
+  expect(getByText(/Flour/)).toBeInTheDocument()
+  expect(getByText(/Water/)).toBeInTheDocument()
   expect(getByRole('img', { name: recipe.name })).toBeInTheDocument()
 })
+

@@ -11,13 +11,14 @@ test('renders without crashing', () => {
 })
 
 test('render error with wrong credentials', async () => {
-  const { getByLabelText, getByText } = render(<Router><Login /></Router>)
+  const { getByLabelText, getByText, getAllByText } = render(<Router><Login /></Router>)
 
-  fireEvent.change(getByLabelText('Email:'), {
+  fireEvent.change(getByLabelText('Email'), {
     target: { value: 'user@example.com' }
   })
 
-  fireEvent.change(getByLabelText('Password:'), {
+  fireEvent.change(getByLabelText('Password'), {
+
     target: { value: 'password' }
   })
 
@@ -27,7 +28,9 @@ test('render error with wrong credentials', async () => {
       throw new Error('User not found')
     })
 
-  fireEvent.click(getByText('Log in'))
+  const logIn = getAllByText('Log in')
+
+  fireEvent.click(logIn[1])
 
   const errorMessage = await waitForElement(() => getByText(/User not found/))
 
@@ -49,16 +52,17 @@ test('user can log in and his redirected to homepage', async () => {
     .spyOn(auth, 'signInWithEmailAndPassword')
     .mockReturnValue(true)
 
-  const { getByLabelText, getByText } = render(<Router><Login /></Router>)
+  const { getByLabelText, getAllByText } = render(<Router><Login /></Router>)
 
-  fireEvent.change(getByLabelText('Email:'), {
+  fireEvent.change(getByLabelText('Email'), {
     target: { value: 'test@example.com' }
   })
-  fireEvent.change(getByLabelText('Password:'), {
+  fireEvent.change(getByLabelText('Password'), {
     target: { value: 'password' }
   })
 
-  fireEvent.click(getByText('Log in'))
+  const logIn = getAllByText('Log in')
+  fireEvent.click(logIn[1])
 
   expect(await logInSpy).toHaveBeenCalled()
   expect(mockHistoryPush).toHaveBeenCalled()

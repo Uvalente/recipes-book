@@ -54,4 +54,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Resolve double rendering
 - Add Express
 - User reset password
-- Add Tailwind CSS
+- Edit recipe
+- Delete recipe
+- CSS
+ - Fix minimum h of App

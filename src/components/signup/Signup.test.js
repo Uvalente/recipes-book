@@ -12,15 +12,15 @@ test('renders without crashing', () => {
 test('render error with wrong credentials', async () => {
   const { getByLabelText, getByText } = render(<Router><Signup /></Router>)
 
-  fireEvent.change(getByLabelText('Email:'), {
+  fireEvent.change(getByLabelText('Email'), {
     target: { value: 'test@example.com' }
   })
 
-  fireEvent.change(getByLabelText('Username:'), {
+  fireEvent.change(getByLabelText('Username'), {
     target: { value: 'Test' }
   })
 
-  fireEvent.change(getByLabelText('Password:'), {
+  fireEvent.change(getByLabelText('Password'), {
     target: { value: 'password' }
   })
 

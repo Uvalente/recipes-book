@@ -16,19 +16,19 @@ it('renders without crashing', () => {
 });
 
 test('displays errors upon submit', () => {
-  const { getByTestId, getByText } = render(newRecipeWithRouter)
-  fireEvent.click(getByTestId('recipe-submit'))
+  const { getByText } = render(newRecipeWithRouter)
+  fireEvent.click(getByText('Create recipe'))
   expect(getByText(/please insert a recipe title/i)).toBeInTheDocument()
   expect(getByText(/insert recipe\'s instructions/i)).toBeInTheDocument()
   expect(getByText(/select a course type/i)).toBeInTheDocument()
 })
 
 test('save recipe to state and reset form upon submit', () => {
-  const { getByTestId, getAllByPlaceholderText, getByText } = render(newRecipeWithRouter)
-  const title = getByTestId('recipe-name')
-  const description = getByTestId('recipe-description')
-  const course = getByTestId('recipe-course')
-  const button = getByTestId('recipe-submit')
+  const { getAllByPlaceholderText, getByText, getByLabelText } = render(newRecipeWithRouter)
+  const title = getByLabelText('Recipe title')
+  const description = getByLabelText('Recipe instructions')
+  const course = getByLabelText('Course type')
+  const button = getByText('Create recipe')
   let ingredient = getAllByPlaceholderText('Ingredient')
 
   fireEvent.change(title, {

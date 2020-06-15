@@ -21,7 +21,7 @@ test('display not logged in Header', () => {
     </Router>
   )
 
-  const header = getByText('Stranger recipe book')
+  const header = getByText("Stranger's Recipe Book")
   const logIn = getByText('Log In')
   
   expect(header).toBeInTheDocument()
@@ -31,7 +31,8 @@ test('display not logged in Header', () => {
 test('display logged in Header', () => {
   const user = { displayName: 'Tester' }
   const { getByText } = render(<Router><Header user={user} /></Router>)
-  const header = getByText('Tester recipe book')
+  
+  const header = getByText("Tester's Recipe Book")
   const signOut = getByText('Sign Out')
 
   expect(header).toBeInTheDocument()

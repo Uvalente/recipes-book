@@ -9,7 +9,6 @@ import NewRecipe from './components/newRecipe/NewRecipe'
 import RecipeCollection from './components/recipeCollection/RecipeCollection'
 import Recipe from './components/recipe/Recipe'
 import Footer from './components/footer/Footer'
-import './App.css'
 import { UserContext } from './providers/UserProvider'
 import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
@@ -20,9 +19,7 @@ function App() {
   const AuthenticatedRoutes = (props) =>
     <Switch>
       <Route exact path='/'>
-        <div className='recipes-wrapper'>
-          <RecipeCollection user={props.user} />
-        </div>
+        <RecipeCollection user={props.user} />
       </Route>
       <Route path='/recipes/new'>
         <NewRecipe user={props.user} />
@@ -46,17 +43,15 @@ function App() {
 
   return (
     <Router>
-      <div className='container'>
         <Header user={user}/>
-        {
-          user
-            ?
-            <AuthenticatedRoutes user={user} />
-            :
-            <NotAuthenticatedRoutes />
-        }
+          {
+            user
+              ?
+              <AuthenticatedRoutes user={user} />
+              :
+              <NotAuthenticatedRoutes />
+          }
         <Footer />
-      </div>
     </Router>
   );
 }
