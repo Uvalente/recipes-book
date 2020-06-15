@@ -58,4 +58,3 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Delete recipe
 - CSS
  - Fix minimum h of App
- - Fix file upload input
