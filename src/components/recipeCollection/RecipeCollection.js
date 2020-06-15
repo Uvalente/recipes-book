@@ -33,7 +33,6 @@ const RecipeCollection = (props) => {
       key={recipe.id}
       id={recipe.id}
       recipeName={recipe.data.name}
-      recipeDescription={recipe.data.description}
       recipeCourse={recipe.data.course}
       recipeImageUrl={recipe.data.pictureUrl}
     />
