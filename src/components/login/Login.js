@@ -38,7 +38,7 @@ const Login = () => {
               <p>{error}</p>
             </div>
           }
-          <label className='block text-gray-900 mb-2 font-semibold pt-4' for='email'>
+          <label className='block text-gray-900 mb-2 font-semibold pt-4' htmlFor='email'>
             Email
           </label>
           <input
@@ -50,9 +50,9 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <label className='block text-gray-900 mb-2 font-semibold pt-4' for='password'>
+          <label className='block text-gray-900 mb-2 font-semibold pt-4' htmlFor='password'>
             Password
-        </label>
+          </label>
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             id='password'
@@ -71,7 +71,7 @@ const Login = () => {
         </form>
       </div >
       <div className='hidden lg:block lg:w-1/2 lg:relative'>
-        <img src='/egg-recipe.jpg' className='absolute inset-0 h-full w-full object-cover object-center' />
+        <img src='/egg-recipe.jpg' className='absolute inset-0 h-full w-full object-cover object-center' alt='' />
       </div>
     </div>
 

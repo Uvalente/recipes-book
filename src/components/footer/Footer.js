@@ -16,7 +16,7 @@ const Footer = () => {
           target='blank'
           className='hover:text-white'
         >
-          <i class="fas fa-envelope-square text-3xl mr-2 mt-1"></i>
+          <i className="fas fa-envelope-square text-3xl mr-2 mt-1"></i>
         </a>
         <a
           href='https://www.linkedin.com/in/umberto-valente-360375195/'
@@ -32,7 +32,7 @@ const Footer = () => {
           target='blank'
           className='hover:text-white'
         >
-          <i class="fab fa-github-square text-3xl" />
+          <i className="fab fa-github-square text-3xl" />
         </a>
       </div>
       <div className='w-1/2 text-right'>

@@ -42,7 +42,7 @@ const Signup = () => {
   return (
     <div className='flex'>
       <div className='hidden lg:block lg:w-1/2 lg:relative'>
-        <img src='/tablet-recipe-2.jpg' className='absolute inset-0 h-full w-full object-cover object-center' />
+        <img src='/tablet-recipe-2.jpg' className='absolute inset-0 h-full w-full object-cover object-center' alt='' />
       </div>
       <div className='mx-auto max-w-md lg:w-1/2 lg:py-6 lg:max-w-lg'>
         <form onSubmit={handleSubmit} className='bg-white m-6 p-6 shadow-md rounded-lg'>
@@ -53,7 +53,7 @@ const Signup = () => {
               <p>{error}</p>
             </div>
           }
-          <label className='block text-gray-900 mb-2 font-semibold pt-4' for='displayName'>
+          <label className='block text-gray-900 mb-2 font-semibold pt-4' htmlFor='displayName'>
             Username
           </label>
           <input
@@ -66,7 +66,7 @@ const Signup = () => {
             required
           />
 
-          <label className='block text-gray-900 mb-2 font-semibold pt-4' for='email'>
+          <label className='block text-gray-900 mb-2 font-semibold pt-4' htmlFor='email'>
             Email:
           </label>
           <input
@@ -78,7 +78,7 @@ const Signup = () => {
             onChange={handleChange}
             required
           />
-          <label className='block text-gray-900 mb-2 font-semibold pt-4' for='password'>
+          <label className='block text-gray-900 mb-2 font-semibold pt-4' htmlFor='password'>
             Password:
           </label>
           <input

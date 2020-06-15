@@ -16,7 +16,7 @@ const NewRecipe = (props) => {
     <form onSubmit={recipeHandleSubmit} noValidate className='bg-white shadow-md rounded-lg m-2 lg:max-w-4xl xl:max-w-6xl lg:mx-auto lg:my-12 px-4 py-6 lg:p-10 xl:px-12'>
       <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl lg:py-2'>New Recipe</h3>
 
-      <label className='block text-gray-900 mb-2 font-semibold pt-6' for='recipeName'>
+      <label className='block text-gray-900 mb-2 font-semibold pt-6' htmlFor='recipeName'>
         Recipe title
       </label>
       <input
@@ -37,7 +37,7 @@ const NewRecipe = (props) => {
         </div>
       }
 
-      <label className='block text-gray-900 mb-2 font-semibold pt-6' for='recipeCourse'>
+      <label className='block text-gray-900 mb-2 font-semibold pt-6' htmlFor='recipeCourse'>
         Course type
       </label>
       <select
@@ -62,14 +62,14 @@ const NewRecipe = (props) => {
         </div>
       }
 
-      <label className='block text-gray-900 mb-2 font-semibold pt-6' for='recipePicture'>
+      <label className='block text-gray-900 mb-2 font-semibold pt-6' htmlFor='recipePicture'>
         Upload picture
       </label>
-      <label class="mt-2 w-32 flex flex-col items-center py-1 bg-blue-700 text-white rounded-md border border-b-4 border-blue-900 cursor-pointer hover:bg-blue-600">
+      <label className="mt-2 w-32 flex flex-col items-center py-1 bg-blue-700 text-white rounded-md border border-b-4 border-blue-900 cursor-pointer hover:bg-blue-600">
         <svg className="w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
         </svg>
-        <span class="font-semibold">{recipeForm.recipePicture ? `${recipeForm.recipePicture.name}` : 'Select a file'}</span>
+        <span className="font-semibold">{recipeForm.recipePicture ? `${recipeForm.recipePicture.name}` : 'Select a file'}</span>
         <input
           className="hidden"
           type="file"
@@ -132,7 +132,7 @@ const NewRecipe = (props) => {
       <button type='button' onClick={addIngredient} className='mt-4 bg-blue-700 hover:bg-blue-600 text-white font-bold text-xl w-8 border-b-4 border-blue-900 hover:border-blue-800 rounded-md'>+</button>
       <button type='button' onClick={removeIngredient} className='mt-4 ml-2 bg-blue-700 hover:bg-blue-600 text-white font-bold text-xl w-8 border-b-4 border-blue-900 hover:border-blue-800 rounded-md'>-</button>
 
-      <label className='block text-gray-900 mb-2 font-semibold pt-6' for='recipeDescription'>
+      <label className='block text-gray-900 mb-2 font-semibold pt-6' htmlFor='recipeDescription'>
         Recipe instruction
       </label>
       <textarea
