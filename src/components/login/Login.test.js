@@ -18,6 +18,7 @@ test('render error with wrong credentials', async () => {
   })
 
   fireEvent.change(getByLabelText('Password'), {
+
     target: { value: 'password' }
   })
 

@@ -31,6 +31,7 @@ test('display not logged in Header', () => {
 test('display logged in Header', () => {
   const user = { displayName: 'Tester' }
   const { getByText } = render(<Router><Header user={user} /></Router>)
+  
   const header = getByText("Tester's Recipe Book")
   const signOut = getByText('Sign Out')
 

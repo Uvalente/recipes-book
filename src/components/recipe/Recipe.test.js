@@ -62,3 +62,4 @@ test('display props correctly', async () => {
   expect(getByText(/Water/)).toBeInTheDocument()
   expect(getByRole('img', { name: recipe.name })).toBeInTheDocument()
 })
+
