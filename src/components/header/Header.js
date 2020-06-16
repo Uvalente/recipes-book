@@ -39,7 +39,7 @@ const Header = (props) => {
     </Fragment>
 
   return (
-    <nav className='flex flex-col bg-blue-900 mx-auto py-2 md:py-5 md:flex-row md:justify-between md:px-12'>
+    <nav className='flex flex-col bg-blue-900 py-2 md:py-5 md:flex-row md:justify-between md:px-12'>
       {
         user
           ?

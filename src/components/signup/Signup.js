@@ -40,11 +40,11 @@ const Signup = () => {
   }
 
   return (
-    <div className='flex'>
+    <div className='flex flex-1'>
       <div className='hidden lg:block lg:w-1/2 lg:relative'>
         <img src='/tablet-recipe-2.jpg' className='absolute inset-0 h-full w-full object-cover object-center' alt='' />
       </div>
-      <div className='mx-auto max-w-md lg:w-1/2 lg:py-6 lg:max-w-lg'>
+      <div className='mx-auto my-auto max-w-md lg:w-1/2 lg:max-w-lg'>
         <form onSubmit={handleSubmit} className='bg-white m-6 p-6 shadow-md rounded-lg'>
           <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl lg:py-2'>Register</h3>
           {

@@ -28,8 +28,8 @@ const Login = () => {
   }
 
   return (
-    <div className='flex'>
-      <div className='mx-auto max-w-md lg:w-1/2 lg:py-16 lg:max-w-lg'>
+    <div className='flex flex-1'>
+      <div className='mx-auto my-auto max-w-md lg:w-1/2 lg:max-w-lg'>
         <form onSubmit={handleSubmit} className='bg-white m-6 p-6 shadow-md rounded-lg'>
           <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl lg:py-2'>Log in</h3>
           {

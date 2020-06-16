@@ -57,4 +57,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Edit recipe
 - Delete recipe
 - CSS
- - Fix minimum h of App
+ - Remove image from Recipe if not present
+ - Remove ingredients from Recipe if not present

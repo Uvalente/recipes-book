@@ -25,7 +25,7 @@ function App() {
         <NewRecipe user={props.user} />
       </Route>
       <Route path='/recipes/:id'>
-        <Recipe user={props.user}/>
+        <Recipe user={props.user} />
       </Route>
     </Switch>
 
@@ -43,15 +43,15 @@ function App() {
 
   return (
     <Router>
-        <Header user={user}/>
-          {
-            user
-              ?
-              <AuthenticatedRoutes user={user} />
-              :
-              <NotAuthenticatedRoutes />
-          }
-        <Footer />
+      <Header user={user} />
+        {
+          user
+            ?
+            <AuthenticatedRoutes user={user} />
+            :
+            <NotAuthenticatedRoutes />
+        }
+      <Footer />
     </Router>
   );
 }

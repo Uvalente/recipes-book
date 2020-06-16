@@ -38,7 +38,7 @@ const RecipeCollection = (props) => {
     />
   )
 
-  return isLoading ? <h1>Loading...</h1 > : <div className='flex flex-wrap p-6'>{recipeComponents}</div>
+  return isLoading ? <h1>Loading...</h1 > : <div className='flex flex-1 flex-wrap p-6'>{recipeComponents}</div>
 
 }
 
