@@ -63,7 +63,6 @@ Remember to have the app running before launching Cypress.
   - Add timestamp
   - Add different display order methods
   - Add visibility option and update db rules
-- Change favicon
 - Improve loading message
 - Improve route protection
 - Resolve double rendering
