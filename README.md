@@ -2,10 +2,13 @@
 
 ### Description
 
-CookBook101 is a fully responsive web app.  
-As a user, you can register for an account and record your cooking recipes online.  
-At the moment your recipe collection is private, in future it will be implemented the option to make it public and browse other user's collections.  
-The app has been built as a SPA in React, storing data with Google Firebase, styled with Taildwind CSS, and using Jest and Cypress for TDD.  
+This project was initially created as a learning experience to improve and fiddle around with React and Cloud Firestore, while applying a TDD approach using Jest and introducing later on Cypress for integration testing.  
+The app is styled with Tailwind CSS, utilizing PostCSS to purge the unused classes and automatically add prefixes for maximum compatibility.
+
+It has since evolved in a fully responsive single page app, where a user can create an account and upload his cooking recipes, providing all the information needed and an optional picture.
+
+At the moment your recipe collection is private, in future it will be implemented the option to make it public and browse other user's collections.
+  
 The live version can be found at: [CookBook101](https://cook101.herokuapp.com/)
 
 ## Run it locally
@@ -72,6 +75,8 @@ Remember to have the app running before launching Cypress.
 - Clean up index.html
 - Update `<head>` and project name
 - Picture modal
+- Extract common element in components
 - CSS
+  - Remove image from recipe list on small devices
   - Remove image from Recipe if not present
   - Remove ingredients from Recipe if not present
