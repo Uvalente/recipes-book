@@ -17,7 +17,7 @@ const RecipeCard = (props) => {
         <Link to={`/recipes/${props.id}`} >
           <div className='bg-white py-2 px-4 rounded-lg shadow-lg'>
             <p
-              className='text-gray-600 text-xs uppercase font-semibold tracking-wide'
+              className='text-gray-600 text-xs uppercase font-semibold tracking-wide hidden md:block'
             >
               {props.recipeCourse}
             </p>

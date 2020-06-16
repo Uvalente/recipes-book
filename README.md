@@ -72,5 +72,3 @@ Remember to have the app running before launching Cypress.
 - Picture modal
 - Extract common element in components
 - Change default image
-- CSS
-  - Remove image from recipe list on small devices
