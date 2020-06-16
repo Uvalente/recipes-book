@@ -72,8 +72,6 @@ Remember to have the app running before launching Cypress.
 - User reset password
 - Edit recipe
 - Delete recipe
-- Clean up index.html
-- Update `<head>` and project name
 - Picture modal
 - Extract common element in components
 - CSS

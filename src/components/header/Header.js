@@ -10,7 +10,7 @@ const Header = (props) => {
       <div className='flex justify-center'>
         <h1 className='font-semibold text-white text-2xl tracking-tight'>
           <img src='/logo.svg' alt='Logo' className='inline-block w-10 md:w-12 pr-2 md:pr-4 align-text-bottom' />
-          {props.displayName}'s Recipe Book
+          {props.displayName}'s CookBook 101
         </h1>
       </div>
       <div className='pt-2 flex justify-evenly text-gray-400 font-semibold uppercase'>
@@ -27,7 +27,7 @@ const Header = (props) => {
       <div className='flex justify-center'>
         <h1 className='font-semibold text-white text-2xl tracking-tight'>
           <img src='/logo.svg' alt='Logo' className='inline-block w-10 md:w-12 pr-2 md:pr-4 align-text-bottom' />
-          Stranger's Recipe Book
+          Stranger's CookBook 101
         </h1>
       </div>
       <div className='pt-2 flex justify-evenly text-gray-400 font-semibold uppercase'>
