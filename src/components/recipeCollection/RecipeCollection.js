@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import RecipeCard from '../recipeCard/RecipeCard'
 import { db } from '../../firebase'
+import Loader from '../loader/Loader'
 
 const RecipeCollection = (props) => {
   const [recipeList, setRecipeList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  console.log('I am loading 4 times?! RecipeCollection')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +38,10 @@ const RecipeCollection = (props) => {
     />
   )
 
-  return isLoading ? <h1>Loading...</h1 > : <div className='flex flex-1 flex-wrap p-6'>{recipeComponents}</div>
+  return isLoading ?
+    <Loader />
+    :
+    <div className='flex flex-1 flex-wrap p-6'>{recipeComponents}</div>
 
 }
 

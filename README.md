@@ -72,3 +72,5 @@ Remember to have the app running before launching Cypress.
 - Picture modal
 - Extract common element in components
 - Change default image
+- CSS
+  - May remove bg-color from Loader
