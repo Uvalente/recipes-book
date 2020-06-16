@@ -71,7 +71,6 @@ Remember to have the app running before launching Cypress.
 - Delete recipe
 - Picture modal
 - Extract common element in components
+- Change default image
 - CSS
   - Remove image from recipe list on small devices
-  - Remove image from Recipe if not present
-  - Remove ingredients from Recipe if not present
