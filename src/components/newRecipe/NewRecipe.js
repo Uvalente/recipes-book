@@ -54,6 +54,7 @@ const NewRecipe = (props) => {
           <option value='Main Course'>Main Course</option>
           <option value='Dessert'>Dessert</option>
           <option value='Drink'>Drink</option>
+          <option value='Element'>Element</option>
         </select>
 
         {
@@ -123,7 +124,9 @@ const NewRecipe = (props) => {
                   <option value='L'>L</option>
                   <option value='Tsp'>Tsp</option>
                   <option value='Tbsp'>Tbsp</option>
-                  <option value='No'>Nº</option>
+                  <option value='Nº'>Nº</option>
+                  <option value='%'>%</option>
+                  <option value='TT'>TT</option>
                 </select>
               </div>
             )

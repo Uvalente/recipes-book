@@ -57,8 +57,6 @@ Remember to have the app running before launching Cypress.
 - Form
   - Add recipe tag
   - Add visibility option
-  - Add standalone course type
-  - Add % and TT to measures
 - Firebase db
   - Look for other users
   - Display other user recipes
