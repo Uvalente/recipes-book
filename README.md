@@ -43,16 +43,17 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 - Form
   - Add recipe tag
+  - Add visibility option
 - Firebase db
   - Look for other users
   - Display other user recipes
   - Add timestamp
   - Add different display order methods
-  - Add writing rules to db
+  - Add visibility option and update db rules
+- Change favicon
 - Improve loading message
 - Improve route protection
 - Resolve double rendering
-- Add Express
 - User reset password
 - Edit recipe
 - Delete recipe
