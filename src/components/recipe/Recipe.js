@@ -13,11 +13,9 @@ const Recipe = (props) => {
       setRecipe(getDoc.data())
     }
     getRecipe()
-  }, [id])
+  }, [id, props.user.uid])
 
   const { name, description, course, pictureUrl, ingredients } = recipe
-
-  console.log('I am loading 4 times?! Recipe')
 
   const ingredientsList = ingredients ? ingredients.map((ingredient, index) => {
     const { itemQuantity, itemMeasure, itemName } = ingredient
@@ -33,13 +31,16 @@ const Recipe = (props) => {
   return (
     <div>
       <div className='bg-white shadow-md rounded-lg m-2 lg:max-w-4xl xl:max-w-6xl lg:mx-auto lg:my-12'>
-        <div className='relative pb-4/6 md:pb-3/6 lg:pb-2/6'>
-          <img
-            className='absolute h-full w-full object-cover object-center rounded-t-lg shadow-sm'
-            src={pictureUrl || "/no_image.jpg"}
-            alt={name}
-          />
-        </div>
+        {
+          pictureUrl &&
+          <div className='relative pb-4/6 md:pb-3/6 lg:pb-2/6'>
+            <img
+              className='absolute h-full w-full object-cover object-center rounded-t-lg shadow-sm'
+              src={pictureUrl}
+              alt={name}
+            />
+          </div>
+        }
         <div className='flex justify-between px-6 py-2 border-b-4 border-double shadow-sm items-center lg:px-12'>
           <p className='text-gray-900 font-semibold text-lg'>{name}</p>
           <p className='text-gray-600 text-xs uppercase font-semibold tracking-wide'>{course}</p>
@@ -47,14 +48,14 @@ const Recipe = (props) => {
         <div className='px-6 py-6 text-gray-900 lg:px-12 lg:pb-10 lg:pt-8'>
           {
             ingredients &&
-            <div>
+            <div className='pb-4'>
               <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl'>Ingredient</h3>
               <ul className='list-disc list-inside text-xs pt-2'>
                 {ingredientsList}
               </ul>
             </div>
           }
-          <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl pt-4'>Instruction</h3>
+          <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl'>Instruction</h3>
           <div className='pt-2 text-gray-900 whitespace-pre-line break-words lg:pt-4'>
             {`${description}`}
           </div>

@@ -6,7 +6,7 @@ describe('Recipe creation', () => {
     cy.get('input[name=email]').type('test@example.com')
     cy.get('input[name=password]').type('password{enter}')
     cy.url().should('eq', 'http://localhost:3000/')
-    cy.contains("Test's Recipe Book").should('exist')
+    cy.contains("Test's CookBook 101").should('exist')
   })
 
   it('create a recipe', () => {

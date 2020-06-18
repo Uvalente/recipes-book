@@ -1,27 +1,35 @@
-# Recipes Book
+# CookBook101
 
-## Work In Progress Application
+### Description
 
-App where you can create your own recipe book.
-Created using React and Jest.
+This project was initially created as a learning experience to improve and fiddle around with React and Cloud Firestore, while applying a TDD approach using Jest and introducing later on Cypress for integration testing.  
+The app is styled with Tailwind CSS, utilizing PostCSS to purge the unused classes and automatically add prefixes for maximum compatibility.
 
-## Setup
+It has since evolved in a fully responsive single page app, where a user can create an account and upload his cooking recipes, providing all the information needed and an optional picture.
+
+At the moment your recipe collection is private, in future it will be implemented the option to make it public and browse other user's collections.
+  
+The live version can be found at: [CookBook101](https://cook101.herokuapp.com/)
+
+## Run it locally
+
+### Setup
 
 `yarn install`
 
 To install all dependencies.
 
-To connect to the database, create `.env.development.local` && `.env.test.local` files to set the React variables as the following example.
+To connect to the database, create `.env.development.local` && `.env.test.local` files and set the React variables as the following example.
 
 ```
-REACT_APP_FIREBASE_API_KEY=key_here
-REACT_APP_FIREBASE_AUTH_DOMAIN=domain_here
-REACT_APP_FIREBASE_DATABASE_URL=db_url_here
-REACT_APP_FIREBASE_PROJECT_ID=project_id_here
-REACT_APP_FIREBASE_STORAGE_BUCKET=bucket_here
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=messaging_sender_here
-REACT_APP_FIREBASE_APP_ID=app_id_here
-REACT_APP_FIREBASE_MEASUREMENT_ID=measurement_id_here
+REACT_APP_FIREBASE_API_KEY=[key_here]
+REACT_APP_FIREBASE_AUTH_DOMAIN=[domain_here]
+REACT_APP_FIREBASE_DATABASE_URL=[db_url_here]
+REACT_APP_FIREBASE_PROJECT_ID=[project_id_here]
+REACT_APP_FIREBASE_STORAGE_BUCKET=[bucket_here]
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=[messaging_sender_here]
+REACT_APP_FIREBASE_APP_ID=[app_id_here]
+REACT_APP_FIREBASE_MEASUREMENT_ID=[measurement_id_here]
 ```
 
 
@@ -29,15 +37,20 @@ REACT_APP_FIREBASE_MEASUREMENT_ID=measurement_id_here
 
 `yarn start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.  
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.  
 
 `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.  
+
+`npx cypress run`
+
+Launches Cypress integration test.  
+Remember to have the app running before launching Cypress.
+
 
 ## To Do List
 
@@ -50,13 +63,14 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
   - Add timestamp
   - Add different display order methods
   - Add visibility option and update db rules
-- Change favicon
 - Improve loading message
 - Improve route protection
 - Resolve double rendering
 - User reset password
 - Edit recipe
 - Delete recipe
+- Picture modal
+- Extract common element in components
+- Change default image
 - CSS
- - Remove image from Recipe if not present
- - Remove ingredients from Recipe if not present
+  - May remove bg-color from Loader
