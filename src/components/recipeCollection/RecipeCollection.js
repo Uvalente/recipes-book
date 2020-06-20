@@ -38,10 +38,14 @@ const RecipeCollection = (props) => {
     />
   )
 
-  return isLoading ?
-    <Loader />
-    :
-    <div className='flex flex-1 flex-wrap p-6'>{recipeComponents}</div>
+  return (
+    <div className='flex flex-1 flex-wrap p-6'>
+      {isLoading ?
+        <Loader />
+        :
+        recipeComponents}
+    </div>
+  )
 
 }
 
