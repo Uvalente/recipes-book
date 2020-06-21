@@ -9,6 +9,11 @@ const UserProvider = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged(async userAuth => {
       const user = await getUserDocument(userAuth)
+      user
+        ?
+        localStorage.setItem("user", JSON.stringify(user))
+        :
+        localStorage.removeItem("user")
       setUser(user)
     })
   }, [])

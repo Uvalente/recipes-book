@@ -14,7 +14,9 @@ import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
 
 function App() {
-  const user = useContext(UserContext)
+  const localState = JSON.parse(localStorage.getItem("user"));
+
+  const user = useContext(UserContext) || localState
 
   const AuthenticatedRoutes = (props) =>
     <Switch>
