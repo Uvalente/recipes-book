@@ -63,7 +63,6 @@ Remember to have the app running before launching Cypress.
   - Add timestamp
   - Add different display order methods
   - Add visibility option and update db rules
-- Improve loading message
 - Improve route protection
 - Resolve double rendering
 - User reset password
@@ -72,5 +71,6 @@ Remember to have the app running before launching Cypress.
 - Picture modal
 - Extract common element in components
 - Change default image
-- CSS
-  - Improve RecipeCard layout
+- Await image upload before redirect
+- Check Ingredient presence / remove empty ones
+- Improve UserContext
