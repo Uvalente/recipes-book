@@ -71,5 +71,4 @@ Remember to have the app running before launching Cypress.
 - Picture modal
 - Extract common element in components
 - Change default image
-- Await image upload before redirect
 - Improve security

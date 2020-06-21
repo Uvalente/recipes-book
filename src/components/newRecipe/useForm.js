@@ -40,10 +40,12 @@ const useForm = (validate, user) => {
     })
   }
 
-  const removeIngredient = () => {   
+  const removeIngredient = () => {
     setRecipeForm(currentRecipeForm => {
-      return {...currentRecipeForm,
-      recipeIngredients: currentRecipeForm.recipeIngredients.slice(0,-1)}
+      return {
+        ...currentRecipeForm,
+        recipeIngredients: currentRecipeForm.recipeIngredients.slice(0, -1)
+      }
     })
   }
 
@@ -63,7 +65,7 @@ const useForm = (validate, user) => {
     setIsSubmitting(true)
   }
 
-  const createRecipe = () => {
+  const createRecipe = async () => {
     let recipeRef = db.collection(`users/${user.uid}/recipes`).doc()
 
     recipeRef.set({
@@ -75,19 +77,10 @@ const useForm = (validate, user) => {
     })
 
     if (recipeForm.recipePicture) {
-      const uploadTask = storage.ref(`/recipes/${recipeForm.recipeName}/${recipeForm.recipePicture.name}`).put(recipeForm.recipePicture)
-
-      uploadTask.on('state_changed', snapShot => {
-        // let progress = (snapShot.bytesTransferred / snapShot.totalBytes) * 100;
-        // console.log('Upload is ' + progress + '% done');
-      }, error => {
-        console.log('Picture upload error:', error)
-      }, () => {
-        uploadTask.snapshot.ref.getDownloadURL().then(url => {
-          recipeRef.update({
-            pictureUrl: url
-          })
-        })
+      const uploadTask = await storage.ref(`/recipes/${recipeForm.recipeName}/${recipeForm.recipePicture.name}`).put(recipeForm.recipePicture)
+      const url = await uploadTask.ref.getDownloadURL()
+      await recipeRef.update({
+        pictureUrl: url
       })
     }
 
@@ -96,9 +89,10 @@ const useForm = (validate, user) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      let reciperef = createRecipe()
-      resetForm()
-      history.push('/recipes/' + reciperef)
+      createRecipe().then(id => {
+        resetForm()
+        history.push('/recipes/' + id)
+      })
     }
   }, [errors])
 

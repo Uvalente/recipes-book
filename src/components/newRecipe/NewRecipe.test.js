@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitForElement } from '@testing-library/react';
 import NewRecipe from './NewRecipe';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -23,7 +23,7 @@ test('displays errors upon submit', () => {
   expect(getByText(/select a course type/i)).toBeInTheDocument()
 })
 
-test('save recipe to state and reset form upon submit', () => {
+test('save recipe to state and reset form upon submit', async () => {
   const { getAllByPlaceholderText, getByText, getByLabelText } = render(newRecipeWithRouter)
   const title = getByLabelText('Recipe title')
   const description = getByLabelText('Recipe instructions')
@@ -68,7 +68,9 @@ test('save recipe to state and reset form upon submit', () => {
   expect(ingredient[0].value).toBe('Ingredient 1')
   expect(ingredient[1].value).toBe('Ingredient 2')
   fireEvent.click(button)
-  expect(title.value).toBeFalsy()
+  
+  const emptyTitle = await waitForElement(() => title)
+  expect(emptyTitle.value).toBeFalsy()
   expect(description.value).toBeFalsy()
   expect(course.value).toBeFalsy()
 })
