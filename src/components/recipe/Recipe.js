@@ -19,7 +19,7 @@ const Recipe = (props) => {
 
   const ingredientsList = ingredients ? ingredients.map((ingredient, index) => {
     const { itemQuantity, itemMeasure, itemName } = ingredient
-    return (
+    return (itemName &&
       <li key={index} className='text-sm font-semibold pb-1'>
         <span className='inline-block w-8'>{itemQuantity}</span>
         <span className='inline-block pl-2 w-6'>{itemMeasure}</span>
@@ -49,7 +49,7 @@ const Recipe = (props) => {
           {
             ingredients &&
             <div className='pb-4'>
-              <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl'>Ingredient</h3>
+              <h3 className='uppercase font-semibold text-gray-900 tracking-wide text-center text-xl'>Ingredients</h3>
               <ul className='list-disc list-inside text-xs pt-2'>
                 {ingredientsList}
               </ul>

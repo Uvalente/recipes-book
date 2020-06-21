@@ -72,5 +72,4 @@ Remember to have the app running before launching Cypress.
 - Extract common element in components
 - Change default image
 - Await image upload before redirect
-- Check Ingredient presence / remove empty ones
 - Improve security
