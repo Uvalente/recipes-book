@@ -9,8 +9,6 @@ const RecipeCollection = () => {
   const [isLoading, setIsLoading] = useState(false)
   const { uid } = useParams()
 
-  console.log('ahie ahie', uid)
-
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true)
