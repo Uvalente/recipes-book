@@ -71,4 +71,3 @@ Remember to have the app running before launching Cypress.
 - Change default image
 - Improve security
 - Name on new user
-- Add logo link
