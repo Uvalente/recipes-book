@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { db } from '../../firebase'
 
-const Recipe = (props) => {
+const Recipe = () => {
   const [recipe, setRecipe] = useState({})
-  const { id } = useParams()
+  const { uid, id } = useParams()
 
   useEffect(() => {
     const getRecipe = async () => {
-      let recipeRef = db.collection(`users/${props.user.uid}/recipes`).doc(id)
+      let recipeRef = db.collection(`users/${uid}/recipes`).doc(id)
       let getDoc = await recipeRef.get()
       setRecipe(getDoc.data())
     }
     getRecipe()
-  }, [id, props.user.uid])
+  }, [uid, id])
 
   const { name, description, course, pictureUrl, ingredients } = recipe
 
@@ -60,7 +60,7 @@ const Recipe = (props) => {
             {`${description}`}
           </div>
 
-          <Link to='/'>
+          <Link to={`/users/${uid}`}>
             <button className='mt-6 bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-4 border-b-4 border-blue-900 hover:border-blue-800 rounded-md md:mt-8 lg:mt-10'>Back</button>
           </Link>
         </div>

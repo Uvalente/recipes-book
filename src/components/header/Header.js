@@ -20,6 +20,8 @@ const Header = (props) => {
         <p className='hidden md:inline-block px-2 text-blue-600'>|</p>
         <Link to={'/recipes/new'} className='hover:text-white'>Add Recipe</Link>
         <p className='hidden md:inline-block px-2 text-blue-600'>|</p>
+        <Link to={'/users'} className='hover:text-white'>Browse</Link>
+        <p className='hidden md:inline-block px-2 text-blue-600'>|</p>
         <Link to={'/'} onClick={() => auth.signOut()} className='hover:text-white'>Sign Out</Link>
       </div>
     </Fragment>

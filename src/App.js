@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom"
 import Header from './components/header/Header'
 import NewRecipe from './components/newRecipe/NewRecipe'
@@ -13,6 +14,7 @@ import { UserContext } from './providers/UserProvider'
 import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
 import NotFoundPage from './components/notFoundPage/NotFoundPage'
+import UserCollection from './components/userCollection/UserCollection'
 
 function App() {
   const localState = JSON.parse(localStorage.getItem("user"));
@@ -22,13 +24,19 @@ function App() {
   const AuthenticatedRoutes = (props) =>
     <Switch>
       <Route exact path='/'>
-        <RecipeCollection user={props.user} />
+        <Redirect to={`/users/${user.uid}`} />
+      </Route>
+      <Route exact path='/users/:uid'>
+        <RecipeCollection />
       </Route>
       <Route path='/recipes/new'>
         <NewRecipe user={props.user} />
       </Route>
-      <Route path='/recipes/:id'>
-        <Recipe user={props.user} />
+      <Route path='/users/:uid/recipes/:id'>
+        <Recipe />
+      </Route>
+      <Route path='/users'>
+        <UserCollection />
       </Route>
       <Route>
         <NotFoundPage />
@@ -39,14 +47,11 @@ function App() {
 
   const NotAuthenticatedRoutes = () =>
     <Switch>
-      <Route exact path={['/', '/login']}>
-        <Login />
-      </Route>
       <Route path='/signup'>
         <Signup />
       </Route>
       <Route>
-        <NotFoundPage />
+        <Login />
       </Route>
     </Switch>
 

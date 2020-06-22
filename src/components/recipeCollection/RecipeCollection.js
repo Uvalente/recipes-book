@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react'
 import RecipeCard from '../recipeCard/RecipeCard'
 import { db } from '../../firebase'
 import Loader from '../loader/Loader'
+import { useParams } from 'react-router-dom'
 
-const RecipeCollection = (props) => {
+const RecipeCollection = () => {
   const [recipeList, setRecipeList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const { uid } = useParams()
+
+  console.log('ahie ahie', uid)
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true)
-      let recipeRef = db.collection(`users/${props.user.uid}/recipes`)
+      let recipeRef = db.collection(`users/${uid}/recipes`)
       await recipeRef.orderBy('name').get()
         .then(snapshot => {
           const recipes = []
@@ -26,12 +30,13 @@ const RecipeCollection = (props) => {
     }
 
     fetchData()
-  }, [props.user.uid])
+  }, [uid])
 
   const recipeComponents = recipeList.map(recipe =>
     <RecipeCard
       key={recipe.id}
       id={recipe.id}
+      uid={uid}
       recipeName={recipe.data.name}
       recipeCourse={recipe.data.course}
       recipeImageUrl={recipe.data.pictureUrl}

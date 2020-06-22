@@ -91,7 +91,7 @@ const useForm = (validate, user) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       createRecipe().then(id => {
         resetForm()
-        history.push('/recipes/' + id)
+        history.push('/users/' + user.uid + '/recipes/' + id)
       })
     }
   }, [errors])
