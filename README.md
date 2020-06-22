@@ -70,6 +70,5 @@ Remember to have the app running before launching Cypress.
 - Extract common element in components
 - Change default image
 - Improve security
-- 404 route
 - Name on new user
 - Add logo link

@@ -12,6 +12,7 @@ import Footer from './components/footer/Footer'
 import { UserContext } from './providers/UserProvider'
 import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
+import NotFoundPage from './components/notFoundPage/NotFoundPage'
 
 function App() {
   const localState = JSON.parse(localStorage.getItem("user"));
@@ -29,6 +30,9 @@ function App() {
       <Route path='/recipes/:id'>
         <Recipe user={props.user} />
       </Route>
+      <Route>
+        <NotFoundPage />
+      </Route>
     </Switch>
 
 
@@ -41,18 +45,21 @@ function App() {
       <Route path='/signup'>
         <Signup />
       </Route>
+      <Route>
+        <NotFoundPage />
+      </Route>
     </Switch>
 
   return (
     <Router>
       <Header user={user} />
-        {
-          user
-            ?
-            <AuthenticatedRoutes user={user} />
-            :
-            <NotAuthenticatedRoutes />
-        }
+      {
+        user
+          ?
+          <AuthenticatedRoutes user={user} />
+          :
+          <NotAuthenticatedRoutes />
+      }
       <Footer />
     </Router>
   );
