@@ -8,10 +8,12 @@ const Header = (props) => {
   const AuthHeader = (props) =>
     <Fragment>
       <div className='flex justify-center'>
-        <h1 className='font-semibold text-white text-2xl tracking-tight'>
-          <img src='/logo.svg' alt='Logo' className='inline-block w-10 md:w-12 pr-2 md:pr-4 align-text-bottom' />
-          {props.displayName}'s CookBook 101
-        </h1>
+        <Link to={'/'}>
+          <h1 className='font-semibold text-white text-2xl tracking-tight'>
+            <img src='/logo.svg' alt='Logo' className='inline-block w-10 md:w-12 pr-2 md:pr-4 align-text-bottom' />
+            {props.displayName ? props.displayName : 'User'}'s CookBook 101
+          </h1>
+        </Link>
       </div>
       <div className='pt-2 flex justify-evenly text-gray-400 font-semibold uppercase'>
         <Link to={'/'} className='hover:text-white'>Home</Link>
@@ -25,10 +27,12 @@ const Header = (props) => {
   const NonAuthHeader = () =>
     <Fragment>
       <div className='flex justify-center'>
-        <h1 className='font-semibold text-white text-2xl tracking-tight'>
-          <img src='/logo.svg' alt='Logo' className='inline-block w-10 md:w-12 pr-2 md:pr-4 align-text-bottom' />
+        <Link to={'/'}>
+          <h1 className='font-semibold text-white text-2xl tracking-tight'>
+            <img src='/logo.svg' alt='Logo' className='inline-block w-10 md:w-12 pr-2 md:pr-4 align-text-bottom' />
           Stranger's CookBook 101
-        </h1>
+          </h1>
+        </Link>
       </div>
       <div className='pt-2 flex justify-evenly text-gray-400 font-semibold uppercase'>
         <Link to={'/'} className='hover:text-white'>Home</Link>

@@ -63,16 +63,11 @@ Remember to have the app running before launching Cypress.
   - Add timestamp
   - Add different display order methods
   - Add visibility option and update db rules
-- Improve route protection
-- Resolve double rendering
 - User reset password
 - Edit recipe
 - Delete recipe
 - Picture modal
 - Extract common element in components
-<<<<<<< HEAD
-- Change default image
-=======
 - Change default image
 - Improve security
->>>>>>> master
+- Name on new user
