@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const UserCard = (props) => {
   return (
-    <div className='w-1/2 sm:w-1/4 lg:w-1/5 xl:w-1/6 p-2 lg:p-4 xl:p-6 relative'>
+    <div className='w-1/2 sm:w-1/4 lg:w-1/5 xl:w-1/6 p-2 lg:p-4 xl:p-6 relative mb-6'>
       <Link to={`/users/${props.id}`} >
         <img
           className='rounded-full shadow-lg'
