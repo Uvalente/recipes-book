@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { db } from '../../firebase'
+import { db, auth } from '../../firebase'
 
 const Recipe = () => {
   const [recipe, setRecipe] = useState({})
@@ -60,9 +60,17 @@ const Recipe = () => {
             {`${description}`}
           </div>
 
-          <Link to={`/users/${uid}`}>
-            <button className='mt-6 bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-4 border-b-4 border-blue-900 hover:border-blue-800 rounded-md md:mt-8 lg:mt-10'>Back</button>
-          </Link>
+          <div className='space-x-2'>
+            <Link to={`/users/${uid}`}>
+              <button className='mt-6 bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-4 border-b-4 border-blue-900 hover:border-blue-800 rounded-md md:mt-8 lg:mt-10'>Back</button>
+            </Link>
+            {
+              auth.currentUser && auth.currentUser.uid === uid &&
+              <Link to={`/users/${uid}/recipes/${id}/edit/`}>
+                <button className='mt-6 bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-4 border-b-4 border-blue-900 hover:border-blue-800 rounded-md md:mt-8 lg:mt-10'>Edit</button>
+              </Link>
+            }
+          </div>
         </div>
       </div>
     </div>
