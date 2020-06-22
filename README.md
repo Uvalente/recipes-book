@@ -58,8 +58,6 @@ Remember to have the app running before launching Cypress.
   - Add recipe tag
   - Add visibility option
 - Firebase db
-  - Look for other users
-  - Display other user recipes
   - Add timestamp
   - Add different display order methods
   - Add visibility option and update db rules

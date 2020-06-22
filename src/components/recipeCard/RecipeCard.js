@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const RecipeCard = (props) => {
   return (
     <div className='w-1/2 sm:w-1/3 lg:w-1/4 xl:w-1/5 p-2 lg:p-4 xl:p-6'>
-      <Link to={`/recipes/${props.id}`} >
+      <Link to={`/users/${props.uid}/recipes/${props.id}`} >
         <div className='relative pb-5/6'>
           <img
             className='absolute h-full w-full object-cover rounded-t-lg shadow-sm'
