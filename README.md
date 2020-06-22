@@ -66,6 +66,5 @@ Remember to have the app running before launching Cypress.
 - Delete recipe
 - Picture modal
 - Extract common element in components
-- Change default image
 - Improve security
 - Name on new user
