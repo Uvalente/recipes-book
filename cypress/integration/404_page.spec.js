@@ -7,5 +7,6 @@ describe('Display 404 page', () => {
     cy.visit('/wrongpage')
     cy.contains("404")
     cy.contains('Page not found')
+    cy.contains('Sign Out').click()
   })
 })
