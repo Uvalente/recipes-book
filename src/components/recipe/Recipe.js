@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useState, useEffect, Fragment } from 'react'
+import { Link, useParams, useHistory } from 'react-router-dom'
 import { db, auth } from '../../firebase'
 
 const Recipe = () => {
   const [recipe, setRecipe] = useState({})
   const { uid, id } = useParams()
+  const history = useHistory()
 
   useEffect(() => {
     const getRecipe = async () => {
@@ -27,6 +28,17 @@ const Recipe = () => {
       </li>
     )
   }) : null
+
+  const handleDelete = async () => {
+    if (window.confirm('Delete this recipe?')) {
+      try {
+        await db.collection(`users/${uid}/recipes`).doc(id).delete()
+        history.push('/')
+      } catch (e) {
+        console.log('Error removing document: ', e)
+      }
+    }
+  }
 
   return (
     <div>
@@ -66,9 +78,12 @@ const Recipe = () => {
             </Link>
             {
               auth.currentUser && auth.currentUser.uid === uid &&
-              <Link to={`/users/${uid}/recipes/${id}/edit/`}>
-                <button className='mt-6 bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-4 border-b-4 border-blue-900 hover:border-blue-800 rounded-md md:mt-8 lg:mt-10'>Edit</button>
-              </Link>
+              <Fragment>
+                <Link to={`/users/${uid}/recipes/${id}/edit/`}>
+                  <button className='mt-6 bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-4 border-b-4 border-blue-900 hover:border-blue-800 rounded-md md:mt-8 lg:mt-10'>Edit</button>
+                </Link>
+                <button className='mt-6 bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-4 border-b-4 border-blue-900 hover:border-blue-800 rounded-md md:mt-8 lg:mt-10' onClick={handleDelete}>Delete</button>
+              </Fragment>
             }
           </div>
         </div>
