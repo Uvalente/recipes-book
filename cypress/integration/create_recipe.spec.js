@@ -1,10 +1,17 @@
 const imageUpload = "../fixtures/crab.png"
 
+before (() => {
+  cy.visit('/login')
+  cy.get('input[name=email]').type('test@example.com')
+  cy.get('input[name=password]').type('password{enter}')
+})
+
+after(() => {
+  cy.contains('Sign Out').click()
+})
+
 describe('Recipe creation', () => {
-  it('user can log in', () => {
-    cy.visit('/login')
-    cy.get('input[name=email]').type('test@example.com')
-    cy.get('input[name=password]').type('password{enter}')
+  it('user is logged in', () => {
     cy.url().should('eq', 'http://localhost:3000/')
     cy.contains("Test's CookBook 101").should('exist')
   })

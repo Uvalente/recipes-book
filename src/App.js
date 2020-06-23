@@ -15,6 +15,7 @@ import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
 import NotFoundPage from './components/notFoundPage/NotFoundPage'
 import UserCollection from './components/userCollection/UserCollection'
+import EditRecipe from './components/editRecipe/EditRecipe'
 
 function App() {
   const localState = JSON.parse(localStorage.getItem("user"));
@@ -31,6 +32,10 @@ function App() {
       </Route>
       <Route path='/recipes/new'>
         <NewRecipe user={props.user} />
+      </Route>
+      <Route path='/users/:uid/recipes/:id/edit/'>
+        {/* ADD PROTECTION JUST IN CASE */}
+        <EditRecipe user={props.user} />
       </Route>
       <Route path='/users/:uid/recipes/:id'>
         <Recipe />
