@@ -62,7 +62,6 @@ Remember to have the app running before launching Cypress.
   - Add different display order methods
   - Add visibility option and update db rules
 - User reset password
-- Delete recipe
 - Picture modal
 - Extract common element in components
 - Improve security
