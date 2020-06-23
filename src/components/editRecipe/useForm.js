@@ -16,7 +16,7 @@ const useForm = (validate, user, id) => {
     const getRecipe = async () => {
       let recipeRef = db.collection(`users/${user.uid}/recipes`).doc(id)
       let getDoc = await recipeRef.get()
-      let {course, description, name, pictureUrl, ingredients } = getDoc.data()
+      let {course, description, name, ingredients } = getDoc.data()
 
       setRecipeForm({
         recipeName: name,

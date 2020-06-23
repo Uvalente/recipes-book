@@ -10,12 +10,20 @@ after(() => {
 
 describe('Edit', () => {
   it('can edit a recipe', () => {
-    cy.contains(/starter|main course|dessert|drink|element/i).click({ force: true })
+    cy.contains(/crab/i).click({ force: true })
     cy.contains('Edit').click()
     cy.get('textarea').type(' Updated Instructions')
     cy.get('input[name=recipeName]').type(' Updated Title{enter}')
     cy.contains(/Updated Title/)
     cy.contains(/Updated Instructions/)
     cy.contains('Edit')
+  })
+})
+
+describe('Delete', () => {
+  it('can delete a recipe', () => {
+    cy.contains('Delete').click()
+    // cy.contains('Ok').click()
+    cy.url().should('not.contain', 'recipes')
   })
 })
