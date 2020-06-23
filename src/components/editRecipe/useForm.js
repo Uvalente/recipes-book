@@ -86,7 +86,7 @@ const useForm = (validate, user, id) => {
   const updateRecipe = async () => {
     let recipeRef = db.collection(`users/${user.uid}/recipes`).doc(id)
 
-    recipeRef.update({
+    await recipeRef.update({
       name: recipeForm.recipeName,
       description: recipeForm.recipeDescription,
       course: recipeForm.recipeCourse,
